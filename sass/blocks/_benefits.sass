@@ -1,0 +1,14 @@
+.right-media
+  @include min-screen(large)
+    padding: rem(80) 9.722222%
+  @include max-screen(large)
+    padding: rem(32) rem(15)
+  // .right-media__content
+  &__content
+    &>:not(:last-child)
+      @include min-screen(medium)
+        margin-bottom: rem(12)
+      @include max-screen(medium)
+        margin-bottom: rem(6)
+  // .right-media__buttons
+  // &__buttons

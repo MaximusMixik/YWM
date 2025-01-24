@@ -1,0 +1,382 @@
+// ===================================================
+//                    THEME TOKENS
+// ===================================================
+
+$active-theme: $light;
+$enable-media-query-dark-mode: false;
+
+// General default colors
+$color-text-default: $color-neutral-600;
+$color-background-default: $color-neutral-000;
+$color-text-interactive-default: $color-neutral-800;
+$color-text-interactive-hover: $color-primary-400;
+
+// set to 0 to disable
+$letter-spacing-loose: 0;
+
+// ===============================
+//  Border Radius - utilities/border-radius
+// ===============================
+
+$border-radius-1: rem(20);
+$border-radius-2: rem(30);
+$border-radius-3: 50%;
+
+// ===============================
+//  Box Shadow - utilities/box-shadow
+// ===============================
+
+// $box-shadow-1:
+// 	0px 6px 5px rgba(0, 0, 0, 0.012),
+// 	0px 22px 18px rgba(0, 0, 0, 0.018),
+// 	0px 100px 80px rgba(0, 0, 0, 0.03);
+
+$box-shadow-2:
+	4px 8px 16px 0px rgba(90, 90, 90, 0.05),
+	0px 0px 16px 0px rgba(90, 90, 90, 0.15);
+$box-shadow-3:
+	8px 16px 32px 0px rgba(90, 90, 90, 0.05),
+	0px 0px 32px 0px rgba(90, 90, 90, 0.15);
+
+// $box-shadow-3:
+// 	0px 6px 5px rgba(0, 0, 0, 0.02),
+// 	0px 22px 18px rgba(0, 0, 0, 0.03),
+// 	0px 100px 80px rgba(0, 0, 0, 0.05);
+
+// $box-shadow-4:
+// 	0px 6px 5px rgba(0, 0, 0, 0.03),
+// 	0px 22px 18px rgba(0, 0, 0, 0.042),
+// 	0px 100px 80px rgba(0, 0, 0, 0.07);
+
+// $box-shadow-5:
+// 	0px 6px 5px rgba(0, 0, 0, 0.04),
+// 	0px 22px 18px rgba(0, 0, 0, 0.06),
+// 	0px 100px 80px rgba(0, 0, 0, 0.1);
+
+// ===============================
+//     General - base/general
+// ===============================
+
+// body
+$body-font-family: $font-family-base;
+$body-font-size: $font-size-300;
+$body-line-height: 1.5;
+$body-font-weight: $font-weight-default;
+$body-text-color: $color-text-default;
+$body-background-color: $color-background-default;
+
+// links
+$link-color: $color-text-interactive-default;
+$link-color-hover: $color-text-interactive-hover;
+
+// gaps
+$grid-gap: $size-16;
+$flex-group-gap: $size-16;
+
+// section
+$section-padding-block: rem(140);
+$section-small-padding-block: rem(70);
+
+// ===============================
+// Headings - components/headings
+// ===============================
+
+// heading general
+$heading-font-family: $font-family-accent;
+$heading-color-default: $color-neutral-800;
+$heading-font-weight: $font-weight-semi-bold;
+$heading-letter-spacing: $letter-spacing-loose;
+$heading-text-transform: none;
+$heading-line-height: 1.3;
+
+// heading 1
+$heading-1-font-size: $font-size-900;
+$heading-1-color: $heading-color-default;
+
+// heading 2
+$heading-2-font-size: $font-size-800;
+$heading-2-color: $heading-color-default;
+
+// heading 3
+$heading-3-font-size: $font-size-700;
+$heading-3-color: $heading-color-default;
+
+// heading 4
+$heading-4-font-size: $font-size-600;
+$heading-4-color: $heading-color-default;
+
+// heading 5
+$heading-5-font-size: $font-size-500;
+$heading-5-color: $heading-color-default;
+
+// heading 6
+$heading-6-font-size: $font-size-400;
+$heading-6-color: $heading-color-default;
+
+// ===============================
+//  Container - utilities/container
+// ===============================
+
+$container-min-margin-inline: $size-16;
+$container-max-width: rem(1190);
+$container-max-width-narrow: rem(1030);
+$container-max-width-wide: rem(1440);
+
+// ===============================
+//  Site Header - components/site-header
+// ===============================
+
+$site-header-background-color: $color-neutral-000;
+$site-header-color: $color-neutral-600;
+$site-header-padding: rem(22) 0;
+$site-header-margin: 0;
+$site-header-jusitifcation-small-screens: center;
+$site-header-jusitifcation-large-screens: space-between;
+$site-header-alignment: center;
+
+// ===============================
+//  Navigation - components/navigation
+// ===============================
+
+$navigation-color: $site-header-color;
+$navigation-color-hover: $color-primary-400;
+$navigation-font-size: $font-size-300;
+$navigation-gap: $size-32;
+$navigation-link-text-transform: uppercase;
+$navigation-link-text-decoration: none;
+$navigation-font-family: $body-font-family;
+$navigation-font-weight: $font-weight-semi-bold;
+
+// ===============================
+//  Site Footer - components/site-footer
+// ===============================
+
+$footer-background-color: $color-gradient-400;
+$footer-text-color: $color-neutral-000;
+$footer-link-color: $color-neutral-000;
+$footer-link-color-hover: $color-primary-400;
+$footer-link-font-family: $body-font-family;
+$footer-link-text-decoration: none;
+
+// ===============================
+//  Buttons - components/buttons
+// ===============================
+
+// button general
+$button-font-family: $body-font-family;
+$button-font-size: $font-size-300;
+$button-font-weight: $font-weight-semi-bold;
+$button-text-transform: uppercase;
+$button-padding: rem(14) rem(28);
+$button-border: none;
+$button-border-radius: $border-radius-2;
+
+// button default
+$button-default-color: $color-accent-400;
+$button-default-background: transparent;
+$button-default-color-hover: $color-primary-400;
+$button-default-background-hover: transparent;
+
+// button accent
+$button-accent-color: $color-primary-400;
+$button-accent-background: $color-neutral-000;
+$button-accent-color-hover: $color-neutral-000;
+$button-accent-background-hover: $color-primary-400;
+
+// button primary
+$button-primary-color: $color-neutral-000;
+$button-primary-background: $color-primary-400;
+$button-primary-color-hover: $color-neutral-000;
+$button-primary-background-hover: $color-accent-400;
+
+// ===============================
+//    Cards - components/cards
+// ===============================
+
+// card general
+$card-flow-spacing: $size-32;
+$card-padding: $size-24;
+$card-shadow: $box-shadow-2;
+$card-border-radius: $border-radius-1;
+$card-background-default: $color-primary-400;
+$card-color-default: $color-neutral-000;
+
+// card heading
+$card-heading-color-default: $card-color-default;
+$card-heading-font-size: $font-size-600;
+
+// ===============================
+//    Forms - components/forms
+// ===============================
+
+// form label
+$form-label-color: $body-text-color;
+$form-label-font-size: rem(14);
+$form-label-font-weight: $body-font-weight;
+$form-label-font-family: $body-font-family;
+
+// error form label
+$error-form-label-color: red;
+$error-form-label-font-size: $body-font-size;
+$error-form-label-font-weight: $body-font-weight;
+$error-form-label-font-family: $body-font-family;
+
+// form input
+$form-input-color: $body-text-color;
+// $form-input-font-size: $body-font-size;
+$form-input-font-size: rem(16);
+$form-input-font-family: $body-font-family;
+$form-input-font-weight: $body-font-weight;
+$form-input-background-color: $color-neutral-000;
+$form-input-border-default: 1px solid #80bb3d;
+$form-input-border-focus: 1px solid #80bb3d;
+$form-input-border-radius: $border-radius-1;
+// $form-input-padding: $size-16;
+$form-input-padding: rem(10) rem(16);
+
+// form placeholder
+$form-placeholder-color: #8a8a8a;
+$form-placeholder-font-size: $body-font-size;
+$form-placeholder-font-weight: $form-input-font-weight;
+$form-placeholder-font-family: $form-input-font-family;
+
+// form group
+$form-group-spacing: 0.5rem;
+
+// ===============================
+// Form Control - components/form-control
+// ===============================
+
+$form-control-font-size: $body-font-size;
+$form-control-font-weight: $body-font-weight;
+$form-control-line-height: $body-line-height;
+$form-control-gap: $size-8;
+$form-control-color: $color-primary-400;
+$form-control-disabled-color: #8a8a8a;
+
+$form-control-background-color: $color-neutral-000;
+$form-control-border: 1px solid #80bb3d;
+$form-control-border-radius: rem(3);
+$form-control-size: rem(18);
+
+// outline on focus style
+$form-control-focus-outline: calc(max(1px, 0.15em)) solid currentColor;
+$form-control-focus-outline-offset: calc(max(1px, 0.15em));
+
+// ===============================
+// Checkboxes - components/checkboxes (inherits form-control)
+// ===============================
+
+$form-checkbox-background-color: $form-control-background-color;
+$form-checkbox-border-radius: $form-control-border-radius;
+$form-checkbox-border: $form-control-border;
+$form-checkbox-size: $form-control-size;
+
+// ===============================
+// Radio-Buttons - components/radio-buttons (inherits form-control)
+// ===============================
+
+$form-radio-background-color: $form-control-background-color;
+$form-radio-border: $form-control-border;
+$form-radio-size: $form-control-size;
+
+// ===============================
+// Text Field - components/text-fields (inherits forms)
+// ===============================
+
+// form input
+$form-text-field-color: $form-input-color;
+$form-text-field-font-family: $form-input-font-family;
+$form-text-field-font-weight: $form-input-font-weight;
+$form-text-field-font-size: $form-input-font-size;
+$form-text-field-background-color: $form-input-background-color;
+$form-text-field-border-default: $form-input-border-default;
+$form-text-field-border-focus: $form-input-border-focus;
+$form-text-field-padding: $form-input-padding;
+$form-text-field-border-radius: $form-input-border-radius;
+$form-text-field-gap: $size-8;
+
+// form placeholder
+$form-text-field-placeholder-color: $form-placeholder-color;
+$form-text-field-placeholder-font-family: $form-placeholder-font-family;
+$form-text-field-placeholder-font-weight: $form-placeholder-font-weight;
+$form-text-field-placeholder-font-size: $form-placeholder-font-size;
+
+// error form input
+$error-form-text-field-color: red;
+$error-form-text-field-font-family: $form-input-font-family;
+$error-form-text-field-font-weight: $form-input-font-weight;
+$error-form-text-field-font-size: $form-input-font-size;
+$error-form-text-field-background-color: $form-input-background-color;
+$error-form-text-field-border-default: 1px solid red;
+$error-form-text-field-border-focus: $form-input-border-focus;
+$error-form-text-field-padding: $form-input-padding;
+$error-form-text-field-border-radius: $form-input-border-radius;
+$error-form-text-field-gap: $size-8;
+
+// erro form placeholder
+$error-form-text-field-placeholder-color: red;
+$error-form-text-field-placeholder-font-family: $form-placeholder-font-family;
+$error-form-text-field-placeholder-font-weight: $form-placeholder-font-weight;
+$error-form-text-field-placeholder-font-size: $form-placeholder-font-size;
+
+// ===============================
+//  Accordions - components/accordions
+// ===============================
+
+// $accordion-icon-size: $size-28;
+// $accordion-button-padding: rem(14);
+// $accordion-content-padding: $size-20 $size-12;
+// $accordion-button-border: rem(1) solid $color-neutral-000;
+// $accordion-content-border: rem(1) solid $color-neutral-000;
+// $accordion-transition: 0.3s ease;
+
+// ===============================
+//  Tabs - components/tabs
+// ===============================
+
+$tabs-background: $color-neutral-000;
+$tabs-background-hover: $color-primary-400;
+$tabs-buttons-gap: $size-4;
+$tabs-button-padding: $size-4 $size-8;
+$tabs-panel-padding: $size-20 $size-12;
+$tabs-border: 1px solid $color-primary-400;
+
+// ===============================
+//  Popups - components/popups
+// ===============================
+
+$popup-border: 0;
+// $popup-width: #{rem(770)};
+$popup-width: rem(1160);
+$popup-padding: $size-80;
+$popup-radius: $border-radius-2;
+$popup-button-inset: $size-20 $size-20 auto auto;
+$popup-button-size: $size-36;
+
+// ===============================
+// Skip Links - components/skip-links
+// ===============================
+
+$skip-link-padding: $size-20 $size-32;
+$skip-link-background-color: $color-primary-400;
+$skip-link-color: $color-neutral-000;
+
+// ===============================
+//    Grid Layout - layout/grid
+// ===============================
+
+$grid-columns-default: 12;
+$grid-columns-large: 8;
+$grid-columns-medium: 8;
+$grid-columns-small: 4;
+
+$grid-column-gap-default: 1rem;
+$grid-column-gap-large: 1rem;
+$grid-column-gap-medium: 1rem;
+$grid-column-gap-small: 1rem;
+
+$grid-row-gap-default: 1rem;
+$grid-row-gap-large: 1rem;
+$grid-row-gap-medium: 1rem;
+$grid-row-gap-small: 1rem;

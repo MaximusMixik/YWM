@@ -1,0 +1,33 @@
+/*
+ * File Description:
+ *
+ * Here we will save our scss functions
+ *
+ */
+
+/*
+ * Default html font-size (don't change)
+ */
+$base-font-size: 16;
+
+
+/*
+ * $px - value in pixels
+ * @return - converted value in rem
+ * 
+ * Ex: height: rem(240) // 15rem
+ */
+@function rem($px) {
+  @return ($px / $base-font-size) + rem;
+}
+
+
+/*
+ * $px - value in pixels
+ * @return - converted value in rem
+ * 
+ * Ex: height: em(240) // 15em
+ */
+@function em($px) {
+  @return ($px / $base-font-size) + em;
+}

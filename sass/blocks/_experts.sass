@@ -1,0 +1,59 @@
+
+.experts
+  display: flex
+  flex-wrap: wrap
+
+  @include min-screen(medium)
+    height: 100%
+  @include max-screen(small)
+    flex-direction: column
+  // .experts__member
+  &__member
+    position: relative
+    min-width: rem(200)
+
+    @media (any-hover: hover)
+      overflow: hidden
+
+      &:hover .experts__about
+        transform: translateY(0%)
+        color: $color-neutral-000
+
+    @include min-screen(small)
+      padding-bottom: 48%
+      flex: 1 1 33.33%
+
+    @include max-screen(medium)
+      // aspect-ratio: 278 / 444;
+      padding-bottom: 100%
+  &__photo,
+  &__about
+    position: absolute
+    width: 100%
+  // .experts__photo
+  &__photo
+    height: 100%
+    background-color: #515151
+    inset: 0
+    object-fit: cover
+
+  // .experts__about
+  &__about
+    bottom: 0
+    height: fit-content
+    left: 0
+    z-index: 2
+    padding: rem(20) rem(16)
+    text-align: center
+    @media (any-hover: hover)
+      transition: transform 0.4s ease
+      transform: translateY(100%)
+      // top: 100%;
+
+  // .experts__name
+  &__name
+    color: inherit
+    &:not(:last-child)
+      margin-bottom: rem(8)
+  // .experts__position
+  // &__position

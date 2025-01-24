@@ -1,0 +1,67 @@
+/* Duplex */
+
+.duplex
+  // .duplex__container
+  &__container
+  // .duplex__row
+  &__row
+    align-items: center
+
+    // @include max-screen(small)
+    //   > *
+    //     padding: 0
+  // .duplex__content-wrapper
+  &__content-wrapper
+    @include max-screen(medium)
+      margin-bottom: rem(16)
+    // @include min-screen(medium)
+    //   padding-right: 6%
+  // .duplex__content
+  &__content
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6
+      &:not(:last-child)
+        @include min-screen(medium)
+          margin-bottom: rem(40)
+        @include max-screen(medium)
+          margin-bottom: rem(20)
+  // .duplex__buttons
+  &__buttons
+    // @include min-screen(medium)
+    //   margin-top: rem(60)
+    // @include min-screen(small)
+    //   & > :not(:first-child)
+    //     margin-left: rem(20)
+    // @include max-screen(small)
+    //   display: grid
+    //   gap: rem(16)
+    //   // justify-content: center;
+    //   > .button
+    //     max-width: 100%
+    //     width: 100%
+    // @include max-screen(medium)
+    //   margin-top: rem(30)
+
+  // .duplex__media-wrapper
+  &__media-wrapper
+    &.right
+      order: 2
+
+    @include max-screen(medium)
+      .duplex__media-wrapper
+        order: 2
+      &.right
+        order: 1
+    img,
+    video
+      border-radius: $border-radius-2
+      height: auto
+      width: 100%
+
+.info + .duplex .duplex__content-wrapper
+    @include min-screen(medium)
+      padding-right: 6%

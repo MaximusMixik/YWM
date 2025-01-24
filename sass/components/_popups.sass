@@ -1,0 +1,93 @@
+.popup
+  width: 90%
+  max-width: $popup-width
+  border: $popup-border
+  box-shadow: $box-shadow-2
+
+  @include min-screen(medium)
+    padding: $popup-padding
+    border-radius: $popup-radius
+  @include max-screen(medium)
+    padding: rem(32)
+    border-radius: $border-radius-1
+  // .popup--video
+  &--video
+    @include min-screen(medium)
+      padding: rem(50) !important
+
+  z-index: 10
+  inset: 50%
+  transform: translate(-50%, -50%)
+  @include hide-scrollbar
+  // .popup__close
+  &__close
+    border: 0
+    cursor: pointer
+    position: absolute
+    z-index: 5
+
+    width: $popup-button-size
+    height: $popup-button-size
+    box-shadow: $box-shadow-2
+    background-color: $color-neutral-000
+    border-radius: $border-radius-3
+
+    display: grid
+    place-items: center
+    @include min-screen(medium)
+      inset: $popup-button-inset
+    @include max-screen(medium)
+      inset: rem(8) rem(8) auto auto
+    @media (any-hover: hover)
+      transition: background-color 0.3s ease
+      &:hover
+        background-color: $color-accent-400
+    svg,
+    img
+      width: 40%
+      height: 40%
+      object-fit: contain
+      fill: $color-primary-400
+      stroke: $color-primary-400
+
+  // .popup__header
+  &__header
+    display: flex
+    gap: rem(30)
+    align-items: center
+    &:not(:last-child)
+      @include min-screen(medium)
+        margin-bottom: rem(40)
+      @include max-screen(medium)
+        margin-bottom: rem(20)
+  // .popup__title
+  &__title
+  // .popup__content
+  &__content
+    a
+      color: $color-primary-400
+      +can-hover
+        transition: color 0.3s ease
+        &:hover
+          color: $color-accent-400
+    & > :not(:last-child)
+      @include min-screen(medium)
+        margin-bottom: rem(24)
+      @include max-screen(medium)
+        margin-bottom: rem(12)
+
+  // .popup__video
+  &__video
+    position: relative
+    @include min-screen(medium)
+      padding-bottom: 50%
+    @include max-screen(medium)
+      padding-bottom: 70%
+    & iframe,
+    & video
+      position: absolute
+      width: 100%
+      height: 100%
+      inset: 0
+      object-fit: cover
+      border-radius: $border-radius-1

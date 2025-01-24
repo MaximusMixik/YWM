@@ -1,0 +1,35 @@
+.info-media
+  color: $color-neutral-000
+
+  // .info-media__container
+  &__container
+    padding-inline: 0
+    @include min-screen(large)
+      display: flex
+  // .info-media__content
+  &__content
+    display: flex
+    flex-direction: column
+    justify-content: center
+    background: $color-gradient-400
+    // color: $color-neutral-000 !important
+
+    .info-media--top &
+      justify-content: flex-start
+
+    @include min-screen(large)
+      padding: rem(86) 2.8% rem(86) 9.7%
+      flex: 1 1 42%
+    @include max-screen(large)
+      padding: rem(32) rem(15)
+
+    & > *,
+    & .content-block__body> *
+      color: inherit
+
+  // .info-media__body
+  &__body
+    align-self: stretch
+    flex: 1 1 58%
+    background-color: $color-neutral-600
+

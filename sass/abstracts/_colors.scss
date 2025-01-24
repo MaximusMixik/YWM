@@ -1,0 +1,105 @@
+//
+// File Description:
+//
+// 1. First, we should take all the colors from the design template
+// and put them in the private constants under "#global color tokens" section
+//
+// To make constant private just add prefix "-": "$clr-white" => "$-clr-white"
+//
+// We need to make them private to be sure, no developer will use them
+// directly in our components or sections, only inside the color maps (see below)
+//
+// These constants should be named as the values, that are inside: "$-clr-white-000: #fff"
+//
+//
+// 2. Second, you should put these global colors inside our color maps
+// By default, we have two color themes: $light and $dark
+// If you don't need the $dark one, just remove it
+//
+// These maps are used inside base/_root.scss file to generate css variables
+// for the light and dark themes accordingly having such structure: --clr-#{$color}-#{$shade}: #{$value}
+//
+// For example, when we have such map:
+// `$light: (
+//   "neutral": (
+//     "000": $-clr-white,
+//   )
+// )`
+//
+// It will be translated to such css variable: `--clr-neutral-000: #fff`
+//
+// You can always check these variables inside </html> element in your browser console
+//
+//
+// 3. Third, put generated css variables into sass constants
+//
+// It should be done like this:
+// $color-neutral-000: var(--clr-neutral-000);
+//
+// Now, these constants can be used in our components
+//
+//
+// Notes:
+//
+// 1) You can see ready colors and their names in ui-kit page also.
+// We have ui-kit.js to create colors grid using generated css variables.
+//
+// 2) Why name our variables "neutral", "primary" and "accent" instead of "white", "black", "red" etc?
+// It will have much more sense if these variables change their values.
+// Also, the same variable could have different value depending on the current theme mode: light/dark
+//
+// 3) -400 color suffix should have the most common color in this shade.
+// -300, -200, -100, -000... would be lighter
+// -500, -600, -700, -800, -900... would be darker
+// -000 suffix should be the lightest possible
+// -900 suffix sould be the darkest possible
+//
+// 4) Why we use -100, -200, -300... instead of -1, -2, -3... for color suffixes?
+// Imagine, we've already set up our color settings
+// and later during development find another primary color that cannot be fitted in our map.
+// However, we can put it between other two like so: color-primary-350
+// This color will be lighter than color-primary-400 but darker than color-primary-300
+//
+//
+
+//#global color tokens
+$-clr-white: rgb(255, 255, 255);
+$-clr-gray-300: rgb(171, 171, 171);
+$-clr-gray-600: rgb(49, 49, 49);
+$-clr-gray-800: rgb(31, 31, 31);
+$-clr-black: rgb(0, 0, 0);
+
+$-clr-green-400: rgb(128, 187, 61);
+$-clr-blue-400: rgb(0, 73, 144);
+
+$-clr-gradient-400: linear-gradient(299deg, #004990 0%, #80bb3d 100%);
+// #color maps
+$light: (
+	"neutral": (
+		"000": $-clr-white,
+		"300": $-clr-gray-300,
+		"600": $-clr-gray-600,
+		"800": $-clr-gray-800,
+		"1000": $-clr-black
+	),
+	"primary": (
+		"400": $-clr-green-400
+	),
+	"accent": (
+		"400": $-clr-blue-400
+	),
+	"gradient": (
+		"400": $-clr-gradient-400
+	)
+);
+
+//#contextual color tokens
+$color-neutral-000: var(--clr-neutral-000);
+$color-neutral-300: var(--clr-neutral-300);
+$color-neutral-600: var(--clr-neutral-600);
+$color-neutral-800: var(--clr-neutral-800);
+$color-neutral-1000: var(--clr-neutral-1000);
+
+$color-primary-400: var(--clr-primary-400);
+$color-accent-400: var(--clr-accent-400);
+$color-gradient-400: var(--clr-gradient-400);

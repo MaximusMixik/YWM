@@ -1,0 +1,51 @@
+.content-block
+  // .content-block__section
+  &__section
+  // .content-block__container
+  &__container
+  // .content-block__row
+  &__row
+  // .content-block__content-wrapper
+  &__content-wrapper
+  // .content-block__buttons
+  &__buttons
+    justify-content: center
+
+.content-block
+  ul
+    padding-left: 1.2rem
+    display: inline-block
+
+    li
+      .text-center &
+        text-align: left
+  a
+    font-weight: $font-weight-semi-bold
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p
+    &:not(:last-child)
+      @include min-screen(medium)
+        margin-bottom: rem(30)
+      @include max-screen(medium)
+        margin-bottom: rem(20)
+
+// .text-center .content-block li
+//   text-align: left
+
+// .content-block h1,
+// .content-block h2,
+// .content-block h3,
+// .content-block h4,
+// .content-block h5,
+// .content-block h6,
+// .content-block p
+//   margin-bottom: 15px
+
+// .content-block *:last-child
+//   margin-bottom: 0

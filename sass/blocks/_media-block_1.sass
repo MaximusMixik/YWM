@@ -1,0 +1,18 @@
+
+.media-block
+  // .media-block__container
+  &__container
+    & > :not(:last-child)
+      @include min-screen(medium)
+        margin-bottom: rem(60)
+      @include max-screen(medium)
+        margin-bottom: rem(30)
+  // .media-block__content-row
+  &__content-row
+  // .media-block__row
+  &__row
+
+  // .media-block__media-wrapper
+  &__media-wrapper
+    & img
+      border-radius: $border-radius-2

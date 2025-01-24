@@ -1,0 +1,36 @@
+.buttons-block
+  display: flex
+  flex-wrap: wrap
+  gap: rem(12) rem(20)
+  // margin-top: 30px;
+  &.text-center
+    justify-content: center
+  &.text-right
+    justify-content: flex-end
+  @include min-screen(medium)
+    margin-top: rem(60)
+  // @include min-screen(small) {
+  // 	& > :not(:first-child) {
+  // 		margin-left: rem(20);
+  // 	}
+  // }
+  @include max-screen(small)
+    display: grid
+    gap: rem(16)
+    // justify-content: center;
+  @include max-screen(medium)
+    margin-top: rem(30)
+  // .buttons-block__button
+  &__button
+    @include min-screen(small)
+    @include max-screen(small)
+      max-width: 100%
+      width: 100%
+
+// @media (max-width: 425px)
+//   .buttons-block a
+//     display: block
+//     margin-left: 0 !important
+
+//   .buttons-block a:first-child
+//     margin-bottom: 0.5rem

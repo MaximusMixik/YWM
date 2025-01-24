@@ -1,0 +1,80 @@
+.info
+  // .info__container
+  &__container
+    display: flex
+    @include min-screen(medium)
+      transform: translateY(-50%)
+      margin-bottom: rem(-70)
+      padding: rem(32)
+      align-items: center
+      background-color: $color-neutral-000
+      border-radius: $border-radius-2
+      box-shadow: $box-shadow-2
+
+    @include max-screen(large)
+      flex-wrap: wrap
+      row-gap: rem(24)
+    @include max-screen(medium)
+      padding: rem(40) rem(15)
+    @include max-screen(small)
+      flex-direction: column
+
+  // .info__title
+  &__title
+    @include min-screen(large)
+      padding-right: rem(20)
+      flex: 0 1 rem(360)
+
+  // .info__column
+  &__column
+    @include min-screen(medium)
+      flex: 0 1 rem(440)
+    @include max-screen(medium)
+      flex: 1 1 100%
+
+  // .info__button
+  &__button
+    line-height: 1.5
+    @include min-screen(medium)
+      flex: 0 0 fit-content
+      margin-left: auto
+    @include max-screen(small)
+      flex: 1 1 100%
+
+.column-info
+  display: grid
+  row-gap: rem(16)
+  grid-template-columns: repeat(2, 1fr)
+  @include min-screen(medium)
+    margin-right: rem(20)
+
+  // .column-info__item
+  &__item
+    border-left: rem(2) solid $color-primary-400
+    line-height: 1.5
+    &:last-child
+      border-right: rem(2) solid $color-primary-400
+    @include min-screen(small)
+      padding-inline: rem(20)
+    @include max-screen(small)
+      padding-inline: rem(12)
+  // .column-info__row
+  &__row
+    display: inline-flex
+    gap: rem(8)
+    align-items: center
+
+  // .column-info__icon
+  &__icon
+    width: rem(28)
+    height: rem(28)
+    flex: 0 0  rem(28)
+    object-fit: contain
+
+  // .column-info__title
+  &__title
+    font-family: $font-family-accent
+    font-weight: $font-weight-semi-bold
+
+  // .column-info__content
+  // &__content

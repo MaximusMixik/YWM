@@ -1,0 +1,45 @@
+.event
+  // .event__container
+  &__container
+    @include min-screen(medium)
+      position: relative
+      overflow: hidden
+      background-color: $color-neutral-000
+      box-shadow: $box-shadow-2
+      border-radius: $border-radius-2
+      padding: rem(80) 21% rem(80) rem(80)
+          // transform: translateY(50%);
+      margin-bottom: rem(-134)
+    @include max-screen(medium)
+      padding-block: rem(60)
+  // .event__content
+  &__content
+    position: relative
+    z-index: 1
+  // .event__buttons
+  &__buttons
+    display: flex
+    flex-wrap: wrap
+    gap: rem(12) rem(20)
+    @include min-screen(medium)
+      margin-top: rem(40)
+    @include max-screen(medium)
+      margin-top: rem(20)
+  // .event__button\
+  &__button
+    @include max-screen(small)
+      flex: 1 1 100%
+  // .event__bg
+  &__bg
+    @include min-screen(medium)
+      position: absolute
+      width: 31%
+      /* 363/1170 */
+      height: 91%
+      /* 358/393 */
+      top: 50%
+      transform: translateY(-50%)
+      right: rem(-100)
+      object-fit: contain
+    @include max-screen(medium)
+      display: none

@@ -1,0 +1,104 @@
+.pricing
+  // .pricing__container
+  &__container
+    & > :not(:last-child)
+      @include min-screen(medium)
+        margin-bottom: rem(60)
+      @include max-screen(medium)
+        margin-bottom: rem(30)
+
+  // .pricing__header
+  &__header
+    text-align: center
+    @include min-screen(medium)
+      max-width: 80%
+      margin-inline: auto
+  // .pricing__list
+  &__list
+
+.pricing-card
+  @include min-screen(large)
+    padding-top: rem(40)
+
+
+  // .pricing-card--accent
+  &--accent
+    .pricing-card__wrapper
+      background-color: $color-primary-400
+      & *
+        color: $color-neutral-000
+
+    @include min-screen(large)
+      padding-top: 0
+      padding-bottom: rem(40)
+
+  // .pricing-card__wrapper
+  &__wrapper
+    background-color: $color-neutral-000
+    box-shadow: $box-shadow-2
+    display: flex
+    flex-direction: column
+    height: 100%
+    gap: rem(32)
+    @media (any-hover:hover)
+      transform: scale(1.001)
+      transition: transform 0.4s ease, box-shadow 0.4s ease
+      &:hover
+        transform: scale(1.05)
+        box-shadow: $box-shadow-3
+  // .pricing-card__content
+  &__content
+    flex: 1 1 auto
+    & > :not(:last-child)
+      margin-bottom: rem(32)
+
+  // .pricing-card__title
+  // &__title
+  // .pricing-card__price
+  // &__price
+  &__title,
+  &__price
+    text-align: center
+  // .pricing-card__advantages
+  &__advantages
+    & > :not(:last-child)
+      margin-bottom: rem(20)
+  // .pricing-card__advantages-item
+  &__advantages-item
+    display: inline-flex
+    align-items: flex-start
+  // .pricing-card__advantages-icon
+  &__advantages-icon
+    flex: 0 0 rem(24)
+    width: rem(24)
+    height: rem(24)
+    margin-right: rem(10)
+    border-radius: $border-radius-3
+    background-color: $color-primary-400
+    display: grid
+    place-items: center
+
+    &::before
+      content: ""
+      position: relative
+      display: inline-block
+      width: rem(14)
+      height: rem(10)
+      background-position: center
+      background-size: contain
+      background-repeat: no-repeat
+
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="10" viewBox="0 0 14 10" fill="none"><path stroke="%23fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M1 5.5 4.5 9l8-8"/></svg>')
+    // .pricing-card__advantages-icon--accent{
+    &--accent
+      background-color: $color-neutral-000
+      &::before
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="10" viewBox="0 0 14 10" fill="none"><path stroke="%2380bb3d" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M1 5.5 4.5 9l8-8"/></svg>')
+  // .pricing-card__button
+  &__button
+    &.button--accent
+      color: $color-primary-400
+
+      @media (any-hover: hover)
+        &:hover
+          background-color: $color-accent-400

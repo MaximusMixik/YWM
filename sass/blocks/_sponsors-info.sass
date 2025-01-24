@@ -1,0 +1,78 @@
+.sponsors
+  // .sponsors__container
+  // &__container
+  // .sponsors__group
+  &__group
+    &:not(:last-child)
+      @include min-screen(medium)
+        margin-bottom: rem(80)
+      @include max-screen(medium)
+        margin-bottom: rem(40)
+
+  &__item,
+  &__title
+    &:not(:last-child)
+      @include min-screen(medium)
+        margin-bottom: rem(60)
+      @include max-screen(medium)
+        margin-bottom: rem(30)
+  // .sponsors__title
+  // &__title
+  // .sponsors__list
+  // &__list
+  // .sponsors__item
+  // &__item
+
+.sponsor
+  display: flex
+  gap: rem(20)
+  @include min-screen(medium)
+    flex-wrap: wrap
+    align-items: flex-start
+    justify-content: space-between
+  @include max-screen(medium)
+    flex-direction: column
+  // .sponsor__image
+  &__image
+    position: relative
+    @include min-screen(medium)
+      flex: 0 1 40.2%
+      padding-bottom: 27.7%
+    @include max-screen(medium)
+      padding-bottom: 50%
+    // min-width: rem(280);
+    & img
+      position: absolute
+      width: 80%
+      height: 80%
+      inset: 10%
+      object-fit: contain
+  // .sponsor__content
+  &__content
+    @include min-screen(medium)
+      flex: 0 1 48.7%
+      /* 565/1160 */
+
+    & > :not(:last-child)
+      @include min-screen(medium)
+        margin-bottom: rem(40)
+      @include max-screen(medium)
+        margin-bottom: rem(20)
+  // .sponsor__title
+  // &__title
+  // .sponsor__excerpt
+  &__excerpt
+    a
+      color: $color-primary-400
+      +can-hover
+        transition: color 0.3s ease
+        &:hover
+          color: $color-accent-400
+  // .sponsor__buttons
+  &__buttons
+    display: flex
+    flex-wrap: wrap
+    gap: rem(20)
+
+  // .sponsor__button
+  // &__button

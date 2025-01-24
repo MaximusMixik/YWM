@@ -1,0 +1,67 @@
+// if has top block 
+// .contact-us ~ .footer
+
+.footer
+  // padding-block: rem(60) rem(90)
+  @include min-screen(medium)
+    padding-block: rem(190) rem(90)
+  @include max-screen(medium)
+    padding-block: rem(60) rem(90)
+
+  background: $footer-background-color
+  color:  $footer-text-color
+
+  // .footer__container
+  &__container
+    display: flex
+    gap: rem(30)
+    @include min-screen(medium)
+      align-items: center
+      justify-content: space-between
+      flex-wrap: wrap
+    @include max-screen(medium)
+      justify-content: center
+      flex-direction: column
+
+  //.footer__logo
+  &__logo
+    width: 
+    height: 
+    width: 100%
+    height: 100%
+    @include min-screen(medium)
+    max-width: rem(166)
+    max-height: rem(92)
+    @include max-screen(medium)
+      max-width: rem(100)
+      max-height: rem(55)
+      display: block
+      margin-inline: auto
+    img, svg
+      width: 100%
+      height: 100%
+      object-fit: contain
+
+
+  &__menu 
+    @include min-screen(medium)
+      flex: 0 0 rem(506)
+      min-width: rem(450)
+
+    & ul
+      display: grid
+      gap: rem(32) rem(56) 
+      grid-template-columns: repeat(auto-fit, minmax(rem(130), 1fr))
+      @include min-screen(small)
+
+  ul
+    a
+      text-transform: uppercase
+      text-decoration: $footer-link-text-decoration
+      font-weight: $font-weight-semi-bold
+      font-size:  inherit
+      color: $footer-link-color
+  
+      +can-hover
+        &:hover, &:focus
+          color:  $footer-link-color-hover

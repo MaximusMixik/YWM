@@ -1,0 +1,58 @@
+.faq
+  @include min-screen(large)
+    padding: rem(80) rem(140)
+    min-height: rem(630)
+
+  @include max-screen(large)
+    padding: rem(32) rem(16)
+
+  display: flex
+  align-items: center
+  // .faq__list
+  &__list
+    width: 100%
+    & > :not(:last-child)
+      margin-bottom: rem(20)
+.accordion
+  border-bottom: rem(1) solid $color-neutral-000
+
+  &__button
+    -webkit-tap-highlight-color: transparent
+    // border-bottom: $accordion-button-border
+    padding-block: rem(12)
+    display: flex
+    align-items: center
+    justify-content: space-between
+    cursor: pointer
+    gap: $size-12
+  // .accordion__title
+  &__title
+    font-size: rem(16)
+
+  &__icon
+    flex: 0 0 rem(28)
+    width: rem(28)
+    height: rem(28)
+    transition: transform 0.3s ease
+    background-color: $color-neutral-000
+    border-radius: $border-radius-3
+
+    display: grid
+    place-items: center
+
+    img,
+    svg
+      width: rem(14)
+      height: rem(8)
+      object-fit: contain
+      // @include image-contain;
+  &[open] &__icon
+    transform: rotate(180deg)
+
+  &__content,
+  &__title
+    color: inherit
+  &__content
+    padding-bottom: rem(12)
+    // border: $accordion-content-border
+    // padding: $accordion-content-padding;

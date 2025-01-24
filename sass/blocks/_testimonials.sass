@@ -1,0 +1,132 @@
+.testimonials
+  // .testimonials__container
+  &__container
+    // display: grid
+    display: flex
+    flex-direction: column
+    @include min-screen(medium)
+      justify-items: center
+      gap: rem(60)
+    @include max-screen(medium)
+      gap: rem(30)
+  // .testimonials__header
+  &__header
+    text-align: center
+  // .testimonials__list
+  &__list
+    @include min-screen(small)
+      display: grid
+      gap: rem(16)
+      grid-template-columns: repeat(auto-fit, minmax(rem(200), 1fr))
+
+    // @include max-screen(small)
+    //   overflow: hidden
+    //   padding-inline: rem(20)
+    @include min-screen(large)
+      gap: rem(30)
+      grid-template-columns: repeat(4, 1fr)
+
+  // .testimonials__buttons
+  &__buttons
+    margin-top: 0 !important
+    flex-direction: column-reverse
+    @include min-screen(small)
+      max-width: max-content
+      margin-inline: auto
+  // .testimonials__slider
+  &__slider
+
+  // .testimonials__slide
+  &__slide
+  // .testimonials__navigation
+  &__navigation
+    @include min-screen(small)
+      display: none
+
+
+.navigation
+  margin-top: rem(20)
+  // .navigation__pagination
+  &__pagination
+    display: flex
+    justify-content: center
+    gap: rem(4)
+    & .swiper-pagination-bullet
+      width: rem(12) 
+      height: rem(12) 
+      background-color: $color-neutral-300
+      opacity: 1
+    & .swiper-pagination-bullet.swiper-pagination-bullet-active
+      background-color: $color-primary-400
+
+.testimonial
+  @include min-screen(small)
+    line-height: 1.5
+    height: 100%
+    grid-row: span 2
+  // @include max-screen(small)
+  //   max-width: 300px
+  & > :not(:last-child)
+    @include min-screen(medium)
+      margin-bottom: rem(28)
+    @include max-screen(medium)
+      margin-bottom: rem(14)
+
+  @include min-screen(medium)
+    &:nth-child(2)
+      grid-column: span 2
+      grid-row: span 3
+
+      .testimonial__author
+        font-size: rem(22)
+      .testimonial__position
+        font-size: rem(18)
+      .testimonial__content
+        font-size: rem(18)
+
+    // .testimonial__header
+  &__header
+    display: flex
+    gap: rem(16)
+    // .testimonial__photo
+  &__photo
+    flex: 0 0 rem(56)
+    width: rem(56)
+    height: rem(56)
+    position: relative
+    & img,
+    & svg
+      position: absolute
+      width: 100%
+      height: 100%
+      inset: 0
+      border-radius: 50%
+      object-fit: contain
+    // .testimonial__info
+  &__info
+    font-family: $font-family-accent
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    gap: rem(8)
+
+    // .testimonial__author
+  &__author
+    font-weight: $font-weight-semi-bold
+    color: $color-primary-400
+    // .testimonial__position
+  &__position
+    color: #797979
+    font-size: rem(14)
+    // .testimonial__content
+  &__content
+    font-size: rem(14)
+
+    @include max-screen(medium)
+      display: block
+      display: -webkit-box
+      -webkit-box-orient: vertical
+      -webkit-line-clamp: 5
+      overflow-y: hidden
+      text-overflow: ellipsis
+

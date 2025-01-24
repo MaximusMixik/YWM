@@ -1,0 +1,131 @@
+
+.schedule
+  // .schedule__container
+  &__container
+    row-gap: rem(40)
+  // .schedule__about
+  &__about
+    @include min-screen(medium)
+      padding-right: rem(35)
+      padding-left: 0
+
+    @include max-screen(medium)
+      padding: 0
+
+  // .schedule__title
+  &__title
+    &:not(:last-child)
+      @include min-screen(medium)
+        margin-bottom: rem(40)
+      @include max-screen(medium)
+        margin-bottom: rem(24)
+
+  // .schedule__content
+  &__content
+    color: $color-neutral-800
+
+    &.content-block .content-block__body > *
+      margin-bottom: 0
+    &.content-block .content-block__body 
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+        &:not(:last-child)
+          @include min-screen(medium)
+            margin-bottom: rem(40)
+          @include max-screen(medium)
+            margin-bottom: rem(24)
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5
+      font-family: $font-family-accent
+      &:not(:last-child)
+        @include min-screen(medium)
+          margin-bottom: rem(32)
+        @include max-screen(medium)
+          margin-bottom: rem(24)
+
+    h6,
+    strong,
+    em
+      &:not(:last-child)
+        padding-bottom: rem(16)
+    p
+      &:not(:last-child)
+        padding-bottom: rem(32)
+
+    h5
+      color: $color-primary-400
+      background-color: $color-neutral-000
+
+    strong
+      font-family: $font-family-accent
+      font-weight: $font-weight-semi-bold
+
+    em
+      color: $color-primary-400
+      span
+        color: $color-neutral-300
+
+    h5 ~ *
+      display: block
+      position: relative
+      @include min-screen(medium)
+        padding-left: rem(30)
+      @include max-screen(medium)
+        padding-left: rem(20)
+    h5:not(:first-of-type)
+      @include min-screen(medium)
+        margin-top: rem(67)
+      @include max-screen(medium)
+        margin-top: rem(40)
+
+    h5 ~ *:not(:last-child, h5)::after
+      content: ""
+      display: block
+      position: absolute
+      width: rem(1)
+      height: 100%
+      top: rem(12)
+      background-color: $color-primary-400
+      z-index: -1
+      opacity: 0.3
+      @include min-screen(medium)
+        left: rem(12)
+      @include max-screen(medium)
+        left: rem(5)
+
+    h6
+      position: relative
+
+    h6::before
+      content: ""
+      display: block
+      position: absolute
+      width: rem(11)
+      height: rem(11)
+      top: rem(8)
+      border-radius: 50%
+      background-color: $color-primary-400
+      z-index: 2
+      @include min-screen(medium)
+        left: rem(7)
+      @include max-screen(medium)
+        left: 0
+    h5::before,
+    h5::after
+      display: none
+    h6:last-of-type::after,
+    h6:last-of-type ~ *::after
+      display: none
+
+  // .schedule__sidebar
+  &__sidebar
+    @include min-screen(medium)
+      padding-left: rem(35)
+      padding-right: 0

@@ -1,0 +1,71 @@
+.contact-us
+  @include min-screen(medium)
+    padding-top: rem(140)
+
+  // .contact-us__container
+  &__container
+    display: flex
+    gap: rem(40) rem(90)
+    @include min-screen(medium)
+      margin-bottom: rem(-134)
+      background-color: $color-neutral-000
+      padding: rem(60) rem(40)
+      border-radius: $border-radius-2
+      box-shadow: $box-shadow-2
+      position: relative
+      z-index: 1
+    @include max-screen(medium)
+      padding: rem(40) rem(15)
+      flex-direction: column
+  // .contact-us__content
+  &__content
+    display: flex
+    gap: rem(20)
+    flex-direction: column
+    & > .content-block
+      flex: 1 1 auto
+    @include min-screen(medium)
+      flex: 1 1 45.2%
+      /* 525/1160 */
+    @include max-screen(medium)
+  // .contact-us__title
+  &__title
+  // .contact-us__text
+  &__text
+    @include min-screen(medium)
+      flex: 1 1 auto
+    @include max-screen(medium)
+
+  // .contact-us__form
+  &__form
+    @include min-screen(medium)
+      flex: 1 1 40.2%
+      /* 466/1160 */
+
+.social-media
+  display: flex
+  gap: rem(30)
+
+  // .social-media__item
+  &__item
+    flex: 0 0 rem(52)
+  // .social-media__link
+  &__link
+    width: rem(52)
+    height: rem(52)
+    border-radius: 50%
+    display: grid
+    place-items: center
+    background-color: $color-primary-400
+
+    @media (any-hover: hover)
+      transition: background-color 0.3s ease
+      &:hover
+        background-color: $color-accent-400
+    & img,
+    & svg
+      width: rem(35)
+      height: rem(35)
+      object-fit: contain
+.custom-select
+  position: relative

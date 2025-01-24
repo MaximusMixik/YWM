@@ -1,0 +1,55 @@
+.error-page
+
+  // .error-page__wrapper
+  &__wrapper
+    display: flex
+    // min-height: 70vh;
+    @include min-screen(medium)
+      min-height: 60vh
+      padding-block: rem(112)
+    @include max-screen(medium)
+      min-height: 80vh
+      min-height: 80svh
+
+  // .error-page__container
+  &__container
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
+    & > :not(:last-child)
+      @include min-screen(medium)
+        margin-bottom: rem(80)
+      @include max-screen(medium)
+        margin-bottom: rem(40)
+
+  // .error-page__box
+  &__box
+    display: flex
+    justify-content: center
+    align-items: center
+    max-width: rem(670)
+    width: 100%
+    position: relative
+    @include min-screen(medium)
+      min-height: rem(260)
+    @include max-screen(medium)
+      min-height: rem(180)
+
+  // .error-page__title
+  // &__title
+
+  // .error-page__image
+  &__image
+    position: absolute
+    width: 100%
+    height: 100%
+    inset: 0
+    object-fit: contain
+
+  // .error-page__content
+  // &__content
+
+  // .error-page__button
+  // &__button

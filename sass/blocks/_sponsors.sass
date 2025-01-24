@@ -1,0 +1,79 @@
+.sponsors-preview
+  position: relative
+  display: flex
+  justify-content: center
+  align-items: center
+
+  @include min-screen(large)
+    padding: rem(80) rem(140)
+  @include max-screen(large)
+    padding: rem(32) rem(16)
+
+  // .sponsors-preview__list
+  &__list
+    display: flex
+    justify-content: center
+    flex-wrap: wrap
+    @include min-screen(medium)
+      gap: rem(64) rem(112)
+    @include max-screen(medium)
+      gap: rem(32)
+  // .sponsors-preview__label
+  // &__label
+
+  // .sponsors-preview__bg
+  &__bg
+    position: absolute
+    width: 100%
+    height: 100%
+    inset: 0
+    object-fit: cover
+
+.sponsor-label
+  background-color: $color-neutral-000
+  border-radius: $border-radius-3
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  overflow: hidden
+  padding: rem(14)
+
+  @include min-screen(medium)
+    flex: 0 0 rem(110)
+    width: rem(110)
+    height: rem(110)
+  @include max-screen(medium)
+    flex: 0 0 rem(80)
+    width: rem(80)
+    height: rem(80)
+
+  &--small
+    box-shadow: rem(6) rem(8) rem(16) 0 rgba(90, 90, 90, 0.15)
+
+    @include min-screen(medium)
+      flex: 0 0 rem(80)
+      width: rem(80)
+      height: rem(80)
+  // .sponsor-label__image
+  &__image
+    position: relative
+    // width: rem(90);
+    // height: rem(50);
+    width: 82%
+    /* 90/110 */
+    height: 45.5%
+    /* 50/110 */
+    & img
+      position: absolute
+      width: 100%
+      height: 100%
+      inset: 0
+      object-fit: contain
+  // .sponsor-label__category
+  &__category
+    margin-top: rem(6)
+    color: $color-neutral-300
+    font-size: rem(12)
+    text-align: center
+    text-transform: capitalize
