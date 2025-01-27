@@ -75,7 +75,6 @@ $layouts = [
     'benefits',
     'sponsors-info',
     'event-translation',
-    'payment',
 ];
 
 foreach ($layouts as $image) {

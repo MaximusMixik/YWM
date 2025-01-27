@@ -16,7 +16,7 @@ if(!$title && !$infos) return ;
 
 		<?php if($title): ?>
 			<h2 class="info__title | heading-6" id="info"> 
-				<?php echo  esc_html($title); ?>
+				<?php echo $title ?>
 			</h2>
 		<?php endif; ?>
 
@@ -28,13 +28,13 @@ if(!$title && !$infos) return ;
 							<img class="column-info__icon" <?php acf_image_attrs($info['icon']); ?>>
 
 							<div class="column-info__title ">
-								<?php echo   esc_html($info['title']); ?>
+								<?php echo  $info['title']; ?>
 							</div>
 
 					</div>
 
 					<div class="column-info__content | mt-12">
-						<?php echo  esc_html($info['text']); ?>
+						<?php echo $info['text'] ?>
 					</div>
 
 				</li>
@@ -42,7 +42,7 @@ if(!$title && !$infos) return ;
 		</ul>
 		<?php if( $link ): ?>
 				<a class="info__button | button button--primary" <?php acf_link_attrs($link) ?>>
-					<?php echo  esc_html($link['title']); ?>
+					<?php echo $link['title']; ?>
 				</a>
 		<?php endif; ?>
 

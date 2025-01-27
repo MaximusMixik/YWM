@@ -33,12 +33,7 @@
 									<div class="sponsors__group">
 										<h2 class="sponsors__title  | animate fade-up">
 											<?php echo ucfirst($level); ?> 
-											<?php 
-											// echo $sponsors_count === 1 ? 'Sponsor' : 'Sponsors';
-											$sponsors_text= _n('Sponsor', 'Sponsors', $sponsors_count, 'ywm');
-											printf(esc_html($sponsors_text), $sponsors_count);
-											
-											?>
+											<?php echo $sponsors_count === 1 ? 'Sponsor' : 'Sponsors'; ?>
 										</h2>
 											<ul class="sponsors__list">
 													<?php
@@ -72,13 +67,13 @@
 
 																	<?php if( $has_video  ) : ?>
 																		<a href="#video-<?php echo ++$counter_id ?>"class="sponsor__button |  button button--primary" >
-																			<?php esc_html_e('view video', 'ywm' ); ?>
+																			view video
 																		</a>
 																	<?php endif; ?>
 
 																	<?php if( !$check_content ) : ?>
 																		<a href="#popup-<?php echo $counter_id ?>" type="button" class="sponsor__button | button ">
-																			<?php esc_html_e('Read More', 'ywm' ); ?>
+																			Read More
 																		</a>
 																	<?php endif; ?>
 
@@ -115,10 +110,11 @@
 																	</h2>
 															</div>
 															<div class="popup__content">
-																		<?php echo wp_kses_post($content); ?>
+																		<?php echo $content; ?>
 															</div>
 														</dialog>
 													<?php endif; ?>
+
 
 												</li>
 											<?php endwhile; ?>
