@@ -13,7 +13,7 @@ function render_heading_block($label = false, $title = false, $titleTag = 'h2', 
 		<?php }; ?>
 
 		<?php if (!empty($title)) { ?>
-			<<?php echo $titleTag;?>  class="heading-block__title | animate fade-up delay-1">
+			<<?php echo $titleTag;?>  class="heading-block__title | animate fade-up delay-1 <?php if($titleTag == 'h1') : echo 'in';endif; ?>">
 				<?php echo esc_html($title); ?>
 			</<?php echo $titleTag;?>>
 		<?php }; ?>

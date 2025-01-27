@@ -1,4 +1,3 @@
-
 <?php
 /*
  * Block: Sponsors
@@ -16,12 +15,14 @@ $buttonPrimary = get_sub_field('button_primary');
 $buttonSecondary = get_sub_field('button_secondary');
 
 $sponsors = get_sub_field('sponsors_list');
+$sponsors_bg = get_sub_field('sponsors_bg');
 }
 else{
 $label = get_field('sponsors_label', 'option');
 $title = get_field('sponsors_title', 'option');
 $titleTag = get_field('sponsors_title_tag', 'option');
 $content = get_field('sponsors_content', 'option');
+$sponsors_bg = get_field('sponsors_bg','option');
 
 
 $buttonPrimary = get_field('sponsors_button_primary', 'option');
@@ -47,7 +48,7 @@ if(!$title  && !$sponsors) return;
 
 
 		<?php if (!empty($sponsors)):
-			$sponsors_bg = get_sub_field('sponsors_bg');
+			
 			?>
 			<div class="info-media__body sponsors-preview">
 					<ul class=" sponsors-preview__list ">
@@ -69,7 +70,7 @@ if(!$title  && !$sponsors) return;
 							<?php endforeach; wp_reset_postdata(); ?>
 					</ul>
 					<?php if($sponsors_bg): ?>
-						<img class=" sponsors-preview__bg" src="<?php echo esc_url($sponsors_bg['url']); ?>" alt="<?php echo esc_attr($sponsors_bg['alt']); ?>">
+						<img class=" sponsors-preview__bg" data-src="<?php echo esc_url($sponsors_bg['url']); ?>" alt="<?php echo esc_attr($sponsors_bg['alt']); ?>">
 					<?php endif; ?>
 			</div>
 		<?php endif; ?>

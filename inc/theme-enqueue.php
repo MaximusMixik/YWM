@@ -30,28 +30,32 @@ function codelibry_enqueue () {
 
 
   /* Styles */
-  wp_enqueue_style('bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap-grid.min.css', array(), '5.0.2', 'all');
+  wp_enqueue_style('bootstrap', "{$DIST}/bootstrap-grid.min.css", array(), '5.0.2', 'all');
   // wp_enqueue_style('bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css', array(), '5.0.2', 'all');
 
   wp_enqueue_style( 'main', "{$DIST}/main.min.css", array(), $style_version, 'all' );
 
 
   /* JavaScript */
-
+	
+  wp_deregister_script('jquery');
+  wp_register_script('jquery', includes_url('/js/jquery/jquery.js'), array(), null, array('strategy'  => 'defer'));
+  wp_enqueue_script( 'jquery');
+	
   // GSAP: https://gsap.com
-  wp_enqueue_script( 'gsap', "{$LIB}/gsap.js", array(), '1.0.0', true );
+  wp_enqueue_script( 'gsap', "{$LIB}/gsap.js", array(), '1.0.0', array('strategy'  => 'defer') );
 
   // GSAP Scroll Trigger (GSAP Plugin): https://gsap.com/docs/v3/Plugins/ScrollTrigger
-  wp_enqueue_script( 'scroll-trigger', "{$LIB}/scroll-trigger.js", array('gsap'), '1.0.0', true );
+  wp_enqueue_script( 'scroll-trigger', "{$LIB}/scroll-trigger.js", array('gsap'), '1.0.0', array('strategy'  => 'defer') );
 
   // Lenis Smooth Scroll: https://github.com/darkroomengineering/lenis 
-  wp_enqueue_script( 'lenis', "{$LIB}/lenis.js", array(), '1.0.0', true );
+  wp_enqueue_script( 'lenis', "{$LIB}/lenis.js", array(), '1.0.0', array('strategy'  => 'defer') );
 
   // Swiper Slider: https://swiperjs.com/get-started
-  wp_enqueue_script( 'swiper', "{$LIB}/swiper.js", array(), '1.0.0', true );
+  wp_enqueue_script( 'swiper', "{$LIB}/swiper.js", array(), '1.0.0', array('strategy'  => 'defer') );
 
   // Lottie Player: https://lottiefiles.github.io/lottie-player/usage.html
-  wp_enqueue_script( 'lottie-player', "{$LIB}/lottie-player.js", array(), '1.0.0', true );
+  wp_enqueue_script( 'lottie-player', "{$LIB}/lottie-player.js", array(), '1.0.0', array('strategy'  => 'defer') );
 
   // Our Custom JavaScript (should depend on libaries above)
   wp_enqueue_script( 'main', "{$DIST}/main.min.js", array(
@@ -61,7 +65,7 @@ function codelibry_enqueue () {
     'lenis', 
     'swiper',
     'lottie-player',
-  ), $custom_version, true );
+  ), $custom_version, array('strategy'  => 'defer') );
 
  // bootstrap JS 
     // wp_enqueue_script('bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js', array(), '5.0.2', true);

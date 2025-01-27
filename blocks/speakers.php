@@ -43,7 +43,7 @@ if(!$title && !$members) return;
 						<li class="experts__member ">
 							<!-- <a href="<?php echo get_permalink($member->ID); ?>" class="experts__link"> -->
 								<?php if (!empty($image)) : ?>
-									<img class="experts__photo"
+									<img data-no-lazy="1" class="experts__photo"
 										src="<?php echo esc_url($image['url']); ?>"
 										alt="<?php echo esc_attr($image['alt']); ?>">
 								<?php endif; ?>
