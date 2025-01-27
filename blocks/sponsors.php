@@ -70,7 +70,7 @@ if(!$title  && !$sponsors) return;
 							<?php endforeach; wp_reset_postdata(); ?>
 					</ul>
 					<?php if($sponsors_bg): ?>
-						<img class=" sponsors-preview__bg" data-src="<?php echo esc_url($sponsors_bg['url']); ?>" alt="<?php echo esc_attr($sponsors_bg['alt']); ?>">
+						<img class="sponsors-preview__bg" src="<?php echo esc_url($sponsors_bg['url']); ?>" alt="<?php echo esc_attr($sponsors_bg['alt']); ?>">
 					<?php endif; ?>
 			</div>
 		<?php endif; ?>
