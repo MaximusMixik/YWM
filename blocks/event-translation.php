@@ -28,9 +28,9 @@ $mediaType = get_sub_field('media_type');
 
 		endif;
 
-		elseif ($mediaType == 'iframe') :
-			$iframe = get_sub_field('iframe');
-				if ($iframe) $media = true;
+		elseif ($mediaType == 'code') :
+			$code = get_sub_field('code');
+				if ($code) $media = true;
 
 
 		endif; 
@@ -48,8 +48,8 @@ $buttonSecondary = get_sub_field('button_secondary');
 			<img <?php img_src('/placeholder-icon.svg'); ?> alt="placeholder">
 		<?php elseif ($mediaType == 'video'): ?>
 			<video src="<?php echo $video;?>"<?php if ($controls) : echo ' controls'; endif; if ($autoplay) : echo ' autoplay muted playsinline'; endif; if ($poster) :?> poster="<?php echo esc_url($poster);?>" <?php endif; ?>></video>
-		<?php elseif ($mediaType == 'iframe'): ?>
-			<?php echo $iframe; ?>
+		<?php elseif ($mediaType == 'code'): ?>
+			<?php echo $code; ?>
 		<?php endif; ?>
 	</div>
 
