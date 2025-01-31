@@ -1,10 +1,18 @@
 .hero
   position: relative
   display: flex
+
+  &--top
+    align-items: flex-start
+  &--center
+    align-items: center
+  &--bottom
+    align-items: flex-end
+
   @include min-screen(medium)
     min-height: rem(615)
     padding-block: rem(124)
-    align-items: flex-start
+    
     // align-items: center
     .page-id-166 &
       padding-block: rem(214)
@@ -46,6 +54,7 @@
         font-size: rem(52)
       @include max-screen(medium)
         font-size: rem(36)
+
 
   // .hero__content
   &__content
