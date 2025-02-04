@@ -59,11 +59,13 @@
     & .swiper-pagination-bullet.swiper-pagination-bullet-active
       background-color: $color-primary-400
 
+
 .testimonial
+  border-radius: $border-radius-1
   @include min-screen(small)
     line-height: 1.5
     height: 100%
-    grid-row: span 2
+    grid-row: span 3
   // @include max-screen(small)
   //   max-width: 300px
   & > :not(:last-child)
@@ -75,7 +77,8 @@
   @include min-screen(medium)
     &:nth-child(2)
       grid-column: span 2
-      grid-row: span 3
+      grid-row: span 4
+      border-radius: $border-radius-2
 
       .testimonial__author
         font-size: rem(22)
@@ -120,12 +123,13 @@
     color: $color-primary-400
     // .testimonial__position
   &__position
+    font-family: $font-family-base
     color: #797979
     font-size: rem(14)
     // .testimonial__content
   &__content
     font-size: rem(14)
-
+    color: $color-neutral-800
     @include max-screen(medium)
       display: block
       display: -webkit-box

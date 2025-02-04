@@ -36,7 +36,7 @@ if(!$heading && !$testimonials) return
 									$position = get_field('position', $post_id );
 									$content = get_the_content(null, false, $testimonial);
 									?>
-								<div class="testimonial swiper-slide | p-20 box-shadow-2 border-radius-2 | animate fade-up zoom-out ">
+								<div class="testimonial swiper-slide | p-20 box-shadow-2  | animate fade-up zoom-out ">
 										<div class="testimonial__header">
 											<?php if ($photo): ?>
 												<div class="testimonial__photo">
