@@ -1,66 +1,55 @@
-jQuery(document).ready(function($){
+jQuery(document).ready(function ($) {
+	let bodyLockStatus = true
+	let bodyLockToggle = (delay = 500) => {
+		if (document.documentElement.classList.contains('lock')) {
+			bodyUnlock(delay)
+		} else {
+			bodyLock(delay)
+		}
+	}
+	let bodyUnlock = (delay = 500) => {
+		if (bodyLockStatus) {
+			const lockPaddingElements = document.querySelectorAll("[data-lp]");
+			setTimeout(() => {
+				lockPaddingElements.forEach(lockPaddingElement => {
+					lockPaddingElement.style.paddingRight = ''
+				});
+				document.body.style.paddingRight = ''
+				document.documentElement.classList.remove("lock")
+			}, delay)
+			bodyLockStatus = false
+			setTimeout(function () {
+				bodyLockStatus = true
+			}, delay)
+		}
+	}
+	let bodyLock = (delay = 500) => {
+		if (bodyLockStatus) {
+			const lockPaddingElements = document.querySelectorAll("[data-lp]")
+			const lockPaddingValue = window.innerWidth - document.body.offsetWidth + 'px'
+			lockPaddingElements.forEach(lockPaddingElement => {
+				lockPaddingElement.style.paddingRight = lockPaddingValue
+			});
 
-  class Menu {
-    constructor(){
-      this.state();
-      this.query();
-      this.events();
-    }
+			document.body.style.paddingRight = lockPaddingValue
+			document.documentElement.classList.add("lock")
 
-    state(){
-      this.isOpen = false;
-    }
+			bodyLockStatus = false
+			setTimeout(function () {
+				bodyLockStatus = true
+			}, delay)
+		}
+	}
+	function menuInit() {
+		if (document.querySelector(".icon-menu")) {
+			document.addEventListener("click", function (e) {
+				if (bodyLockStatus && e.target.closest('.icon-menu')) {
+					bodyLockToggle();
+					document.documentElement.classList.toggle("menu-open");
+				}
+			});
+		};
+	}
+	menuInit()
 
-    query(){
-      this.menu = $('.js-mobile-menu');
-      this.toggleButton = $('.js-mobile-menu-button');
-      this.openIcon = $('.js-mobile-open-icon');
-      this.closeIcon = $('.js-mobile-close-icon');
-    }
-
-    events(){
-      this.toggleButton.click(() => this.toggleMenu());
-      this.menu.find('a').click(() => this.closeMenu()); // if you want menu close on menu-item click
-    }
-
-    toggleMenu(){
-      this.isOpen 
-      ? this.closeMenu()
-      : this.openMenu();
-    }
-
-    openMenu(){
-      this.isOpen = true;
-      this.updateView();
-    }
-
-    closeMenu(){
-      this.isOpen = false;
-      this.updateView();
-    }
-
-    updateView(){
-      // set mobile menu top offset
-      const headerHeight = $('.header').outerHeight() + 'px'
-      this.menu.css('--top', headerHeight);
-      this.menu.css('height', `calc(100vh - ${headerHeight})`);
-
-      // show/hide menu dropdown
-      this.isOpen
-        ? this.menu.slideDown()
-        : this.menu.slideUp();
-
-      // show/hide button
-      if(this.isOpen) {
-        this.closeIcon.show();
-        this.openIcon.hide();
-      } else {
-        this.closeIcon.hide();
-        this.openIcon.show();
-      }
-    }
-  }
-
-  new Menu();
-  
 });

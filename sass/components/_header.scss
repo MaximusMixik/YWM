@@ -1,0 +1,230 @@
+/*! purgecss start ignore */
+
+/*
+ * Site Header
+ */
+//
+body:has(#wpadminbar) .header {
+	top: rem(32);
+	& .menu__body::before {
+		height: rem(100);
+	}
+}
+
+.header {
+	position: sticky;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	width: 100%;
+
+	// background: $site-header-background-color
+	// .header__container
+	&__container {
+		padding-block: rem(8);
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: rem(30);
+		@include min-screen(medium) {
+			min-height: rem(105);
+		}
+		@include max-screen(medium) {
+			min-height: rem(70);
+		}
+	}
+	&__logo {
+		width: 100%;
+		height: 100%;
+		position: relative;
+		// max-width:
+		z-index: 12;
+		@include min-screen(medium) {
+			max-width: rem(235);
+			max-height: rem(60);
+		}
+		@include max-screen(medium) {
+			max-width: rem(130);
+			max-height: rem(33);
+		}
+		img,
+		svg {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+		// @include max-screen(large)
+		//   &__inner
+		//     justify-content: space-between
+	}
+}
+
+.menu {
+	// .menu__icon
+	// &__icon {
+	// }
+	// .menu__body
+	&__body {
+		@include max-screen(medium) {
+			position: fixed;
+			// width: fit-content;
+			// height: fit-content;
+			// border-bottom-left-radius: $border-radius-1;
+			width: 100%;
+			height: 100%;
+			right: -100%;
+			top: 0;
+			overflow: auto;
+			background-color: $site-header-background-color;
+			padding: rem(130) rem(30) rem(30);
+
+			transition: right 0.3s;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-end;
+			&::before {
+				content: "";
+				position: fixed;
+				width: 100%;
+				background-color: $site-header-background-color;
+				right: -100%;
+				top: 0;
+				transition: right 0.3s;
+				z-index: 2;
+
+				@include min-screen(small) {
+					height: rem(105);
+				}
+				@include max-screen(small) {
+					height: rem(70);
+				}
+			}
+			.menu-open & {
+				right: 0;
+				&::before {
+					right: 0;
+				}
+			}
+		}
+		@include min-screen(medium) {
+			gap: rem(60);
+		}
+		@include max-screen(medium) {
+			gap: rem(24);
+			align-items: center;
+			align-content: center;
+			justify-content: space-between;
+		}
+	}
+	&__body,
+	&__list {
+		@include min-screen(medium) {
+			display: flex;
+			align-items: center;
+		}
+		@include max-screen(medium) {
+			gap: rem(24);
+		}
+	}
+	// .menu__list
+	&__list {
+		@include min-screen(medium) {
+			gap: rem(6) rem(32);
+		}
+		@include max-screen(large) {
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		@include max-screen(medium) {
+			display: flex;
+			flex-direction: column;
+			text-align: center;
+			gap: rem(36);
+		}
+	}
+	// .menu__item
+	// &__item {
+	// }
+	// .menu__link
+	li a {
+		font-size: $navigation-font-size;
+		text-transform: $navigation-link-text-transform;
+		text-decoration: $navigation-link-text-decoration;
+		font-weight: $navigation-font-weight;
+		color: $navigation-color;
+		font-family: $navigation-font-family;
+		@media (any-hover: hover) {
+			&:hover {
+				color: $navigation-color-hover;
+			}
+		}
+		@include max-screen(medium) {
+			font-size: rem(22);
+		}
+	}
+	// .menu__btn
+	&__btn {
+		@include min-screen(medium) {
+			flex: 0 0 auto;
+		}
+		@include max-screen(small) {
+			width: 100%;
+		}
+	}
+}
+.icon-menu {
+	display: none;
+	@include max-screen(medium) {
+		display: block;
+		position: relative;
+		width: rem(56);
+		height: rem(56);
+		border: none;
+		background-color: transparent;
+		z-index: 5;
+		@media (any-hover: none) {
+			cursor: default;
+		}
+		span,
+		&::before,
+		&::after {
+			content: "";
+			transition: all 0.3s ease 0s;
+			right: 0;
+			position: absolute;
+			width: 59%;
+			height: rem(2);
+			border-radius: rem(12);
+			background-color: $color-primary-400;
+
+			left: 50%;
+			transform: translateX(-50%);
+		}
+		&::before {
+			top: 16px;
+		}
+
+		&::after {
+			bottom: 16px;
+		}
+		span {
+			top: 48%;
+		}
+		.menu-open & {
+			span {
+				width: 0;
+			}
+			&::before {
+				top: 48%;
+				transform: translateX(-50%) rotate(-45deg);
+			}
+			&::after {
+				bottom: 48%;
+				transform: translateX(-50%) rotate(45deg);
+			}
+		}
+	}
+}
+
+/*! purgecss end ignore */
