@@ -1,8 +1,14 @@
 .info
+  @include max-screen(75em)
+    padding-inline: rem(16)
+  @include max-screen(medium)
+    padding-inline: initial
+
   // .info__container
   &__container
     display: flex
     @include min-screen(medium)
+      max-width: rem(1160)
       transform: translateY(-50%)
       margin-bottom: rem(-70)
       padding: rem(32)
@@ -14,6 +20,7 @@
     @include max-screen(large)
       flex-wrap: wrap
       row-gap: rem(24)
+
     @include max-screen(medium)
       padding: rem(40) rem(15)
     @include max-screen(small)
@@ -38,8 +45,11 @@
     @include min-screen(medium)
       flex: 0 0 fit-content
       margin-left: auto
+    @include max-screen(800px)
+      margin-inline: auto
     @include max-screen(small)
       flex: 1 1 100%
+      margin-inline: initial
 
 .column-info
   display: grid

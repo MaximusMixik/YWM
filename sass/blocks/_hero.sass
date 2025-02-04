@@ -13,17 +13,15 @@
     // min-height: rem(615)
     // min-height: 78.343949vh // 615/785
     // min-height: 78.343949svh // 615/785
-    min-height: 68vh
-    min-height: 68svh
-    padding-block: 15.8svh // 124/785
-    // padding-block: rem(124)
-    // align-items: center
-    .page-id-166 &
-      padding-block: rem(214)
+    min-height: calc( 100vh - (105px + 110px ) )
+    min-height: calc( 100svh - (105px + 110px ) )
+    // min-height: calc( vievportHeight - (headerHeight + InfoBlockHeight + gutter )  )
+
+    // padding-block: calc(max( 100px , 15.8vh))
+    padding-block: calc(max( 100px , 18vh))
 
   @include max-screen(medium)
-    min-height: 90vh
-    // min-height: 90svh;
+    min-height: calc( 100vh - 70px  )
     padding-block: rem(80)
     align-items: center
   &::before,
@@ -77,6 +75,11 @@
         margin-bottom: rem(30)
       @include max-screen(medium)
         margin-bottom: rem(16)
+  & .heading-block__title
+      line-height: 1.2
 
   // .hero__buttons
   // &__buttons
+
+
+// .hero

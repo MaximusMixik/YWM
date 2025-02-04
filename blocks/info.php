@@ -15,7 +15,7 @@ if(!$title && !$infos) return ;
 	<div class="info__container | container  ">
 
 		<?php if($title): ?>
-			<h2 class="info__title | heading-6" id="info"> 
+			<h2 class="info__title | heading-6 clr-neutral-1000" id="info"> 
 				<?php echo $title ?>
 			</h2>
 		<?php endif; ?>
@@ -27,13 +27,13 @@ if(!$title && !$infos) return ;
 					<div class="column-info__row">
 							<img class="column-info__icon" <?php acf_image_attrs($info['icon']); ?>>
 
-							<div class="column-info__title ">
+							<div class="column-info__title | clr-neutral-1000">
 								<?php echo  $info['title']; ?>
 							</div>
 
 					</div>
 
-					<div class="column-info__content | mt-12">
+					<div class="column-info__content | mt-12 clr-neutral-1000">
 						<?php echo $info['text'] ?>
 					</div>
 

@@ -27,6 +27,10 @@ body:has(#wpadminbar) .header {
 		align-items: center;
 		justify-content: space-between;
 		gap: rem(30);
+		// ! ?
+		@include min-screen(75em) {
+			max-width: 83%;
+		}
 		@include min-screen(medium) {
 			min-height: rem(105);
 		}
