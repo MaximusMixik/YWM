@@ -25,6 +25,12 @@ svg {
 ul {
 	list-style: none;
 }
+
+summary::-webkit-details-marker,
+summary::marker {
+	display: none;
+	font-size: 0;
+}
 /*
  * RESET FOR CONTACT FORM 7
  */

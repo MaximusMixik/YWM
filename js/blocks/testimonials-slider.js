@@ -1,12 +1,14 @@
 jQuery(document).ready(function ($) {
 
-	if (window.innerWidth < 480) {
+	const testimonialsSliders = [...document.querySelectorAll(".js-testimonials-swiper")];
+	let swiperInstance = null;
 
-		const testimonialsSliders = [...document.querySelectorAll(".js-testimonials-swiper")];
+	function createSwiper() {
+		if (swiperInstance) {
+			swiperInstance.destroy();
+		}
 
-		if (!testimonialsSliders.length) return
-
-		new Swiper(".js-testimonials-swiper", {
+		swiperInstance = new Swiper(".js-testimonials-swiper", {
 			loop: true,
 			speed: 1200,
 			slidesPerView: 1,
@@ -16,11 +18,22 @@ jQuery(document).ready(function ($) {
 				el: ".js-testimonials-swiper .navigation__pagination",
 				clickable: true,
 			},
-			// autoplay: {
-			// 	enabled: true,
-			// 	delay: 0,
-			// },
 		});
 	}
 
+	function handleResize() {
+		if (window.innerWidth < 480) {
+			if (!testimonialsSliders.length) return;
+			createSwiper();
+		} else if (swiperInstance) {
+			swiperInstance.destroy();
+			swiperInstance = null;
+		}
+	}
+
+	// Initial check
+	handleResize();
+
+	// Add resize listener
+	window.addEventListener('resize', handleResize);
 });

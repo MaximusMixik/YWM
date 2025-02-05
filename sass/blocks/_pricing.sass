@@ -15,6 +15,8 @@
       margin-inline: auto
   // .pricing__list
   &__list
+    @include max-screen(medium)
+      justify-content: center
 
 .pricing-card
   @include min-screen(large)
@@ -53,7 +55,8 @@
       margin-bottom: rem(32)
 
   // .pricing-card__title
-  // &__title
+  &__title
+    line-height: 1.5
   // .pricing-card__price
   // &__price
   &__title,
@@ -62,11 +65,12 @@
   // .pricing-card__advantages
   &__advantages
     & > :not(:last-child)
-      margin-bottom: rem(20)
+      margin-bottom: rem(18)
   // .pricing-card__advantages-item
   &__advantages-item
     display: inline-flex
     align-items: flex-start
+    color: $color-neutral-800
   // .pricing-card__advantages-icon
   &__advantages-icon
     flex: 0 0 rem(24)

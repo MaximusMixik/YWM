@@ -10,8 +10,10 @@
   // .experts__member
   &__member
     position: relative
-    min-width: rem(200)
-
+    @include min-screen(medium)
+      min-width: rem(200)
+    @include max-screen(small)
+      min-width: rem(240)
     @media (any-hover: hover)
       overflow: hidden
 
@@ -23,9 +25,9 @@
       padding-bottom: 48%
       flex: 1 1 33.33%
 
-    @include max-screen(medium)
-      // aspect-ratio: 278 / 444;
-      padding-bottom: 100%
+    @include max-screen(small)
+      // aspect-ratio: 278 / 444
+      padding-bottom: 160%
   &__photo,
   &__about
     position: absolute

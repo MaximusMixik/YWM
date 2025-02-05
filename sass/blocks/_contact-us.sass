@@ -1,12 +1,14 @@
 .contact-us
   @include min-screen(medium)
     padding-top: rem(140)
+    padding-inline: rem(15)
 
   // .contact-us__container
   &__container
     display: flex
     gap: rem(40) rem(90)
     @include min-screen(medium)
+      max-width: rem(1160)
       margin-bottom: rem(-134)
       background-color: $color-neutral-000
       padding: rem(60) rem(40)
@@ -24,6 +26,13 @@
     flex-direction: column
     & > .content-block
       flex: 1 1 auto
+      p
+        color: $color-neutral-800
+      h4:not(:last-child),
+      h5:not(:last-child),
+      h6:not(:last-child)
+        margin-bottom: rem(20)
+
     @include min-screen(medium)
       flex: 1 1 45.2%
       /* 525/1160 */

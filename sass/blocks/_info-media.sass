@@ -17,12 +17,19 @@
         color: inherit
     .info-media--top &
       justify-content: flex-start
+    @media (any-hover:hover)
+      .content-block a
+        transition: color 0.3s ease
+        &:hover
+          text-decoration: none
+          color: $color-accent-400
 
-    @include min-screen(large)
+    @include min-screen(65em)
       padding: rem(86) 2.8% rem(86) 9.7%
+    @include min-screen(large)
       flex: 1 1 42%
-    @include max-screen(large)
-      padding: rem(32) rem(15)
+    @include max-screen(65em)
+      padding: rem(32) rem(16)
 
     & > *,
     & .content-block__body> *

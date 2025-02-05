@@ -2,14 +2,16 @@
 // .contact-us ~ .footer
 
 .footer
+  background: linear-gradient(340deg, #004990 0%, #80BB3D 100%)
+  color:  $footer-text-color
+  // background: $footer-background-color
   // padding-block: rem(60) rem(90)
   @include min-screen(medium)
-    padding-block: rem(190) rem(90)
+    padding-block: rem(200) rem(60)
   @include max-screen(medium)
-    padding-block: rem(60) rem(90)
+    padding-block: rem(60) rem(60)
+  
 
-  background: $footer-background-color
-  color:  $footer-text-color
 
   // .footer__container
   &__container
@@ -29,6 +31,7 @@
     height: 
     width: 100%
     height: 100%
+    mix-blend-mode: luminosity
     @include min-screen(medium)
     max-width: rem(166)
     max-height: rem(92)
@@ -49,11 +52,26 @@
       min-width: rem(450)
 
     & ul
-      display: grid
+      // display: grid
+      // grid-template-columns: repeat(auto-fit, minmax(rem(130), 1fr))
+      display: flex
+      flex-wrap: wrap
       gap: rem(32) rem(56) 
-      grid-template-columns: repeat(auto-fit, minmax(rem(130), 1fr))
-      @include min-screen(small)
+      @include min-screen(medium)
+        justify-content: flex-end
 
+      @include max-screen(small)
+        flex-direction: column
+        align-items: center
+      li
+        @include min-screen(medium)
+          flex-grow: 0
+          flex-shrink: 1
+          flex-basis: rem(150)
+          &:nth-child(3n)
+            flex-basis:   rem(90)
+        @include max-screen(medium)
+          flex: 1 1  40%
   ul
     a
       text-transform: uppercase

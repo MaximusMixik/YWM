@@ -87,7 +87,7 @@ if( !$pricing_posts) return
 
 															<?php if ($price) : ?>
 															<div class="pricing-card__price | heading-3">
-																	<?php echo $price; ?>
+																	<?php echo esc_html($price); ?>
 															</div>
 															<?php endif; ?>
 
@@ -96,7 +96,7 @@ if( !$pricing_posts) return
 																	<?php foreach ($advantages_list as $advantage) : ?>
 																			<li class="pricing-card__advantages-item">
 																					<span class="pricing-card__advantages-icon <?php echo $is_primary ? 'pricing-card__advantages-icon--accent' : ''; ?>"></span>
-																					<?php echo $advantage['item']; ?>
+																					<?php echo esc_html($advantage['item']); ?>
 																			</li>
 																	<?php endforeach; ?>
 															</ul>

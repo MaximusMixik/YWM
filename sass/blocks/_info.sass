@@ -55,6 +55,8 @@
   display: grid
   row-gap: rem(16)
   grid-template-columns: repeat(2, 1fr)
+  overflow: hidden
+
   @include min-screen(medium)
     margin-right: rem(20)
 
@@ -62,6 +64,7 @@
   &__item
     border-left: rem(2) solid $color-primary-400
     line-height: 1.5
+
     &:last-child
       border-right: rem(2) solid $color-primary-400
     @include min-screen(small)

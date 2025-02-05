@@ -29,8 +29,8 @@ if (!$content) return;
 		<?php if (!empty($faqs)): ?>
 			<div class="info-media__body faq">
 				<div class="faq__list ">
-					<?php foreach ($faqs as $faq): ?>
-						<details class="accordion | animate fade-up">
+					<?php foreach ($faqs as $key => $faq): ?>
+						<details class="accordion | animate fade-up" <?php echo $key == 1 ? 'open' : null; ?>>
 							<summary class="accordion__button">
 								<h3 class="accordion__title ">
 									<?php echo esc_html($faq['title']); ?>
