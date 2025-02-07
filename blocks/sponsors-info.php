@@ -66,15 +66,17 @@
 																<div class="sponsor__buttons">
 
 																	<?php if( $has_video  ) : ?>
-																		<a href="#video-<?php echo ++$counter_id ?>"class="sponsor__button |  button button--primary" >
-																			view video
-																		</a>
+																		<button type="button" data-popup="video-<?php echo ++$counter_id ?>" class="sponsor__button | button button--primary">
+																				<?php esc_html_e('view video', 'ywm'); ?>
+																		</button>
+
 																	<?php endif; ?>
 
 																	<?php if( !$check_content ) : ?>
-																		<a href="#popup-<?php echo $counter_id ?>" type="button" class="sponsor__button | button ">
-																			Read More
-																		</a>
+																		<button type="button" data-popup="popup-<?php echo $counter_id ?>" class="sponsor__button | button">
+																				<?php esc_html_e('Read More', 'ywm'); ?>
+																		</button>
+
 																	<?php endif; ?>
 
 																</div>

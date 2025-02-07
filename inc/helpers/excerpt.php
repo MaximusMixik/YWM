@@ -33,3 +33,9 @@ function excerpt($limit, $post_id = -1)
 
   return $excerpt;
 }
+
+
+function custom_excerpt_more($more) {
+    return '...';
+}
+add_filter('excerpt_more', 'custom_excerpt_more');

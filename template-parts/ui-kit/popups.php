@@ -4,15 +4,16 @@
   </h1>
 
   <div class="flex-group | mt-16">
-    <button class="button button--primary" href="#popup-1">
+    <button class="button button--primary" data-popup="popup-1">
       Popup #1
     </button>
-    <button class="button button--primary" href="#popup-2">
+    <button class="button button--primary" data-popup="popup-2">
       Popup #2
     </button>
-    <button class="button button--primary" href="#video-3">
-      Video-Popup #3
-    </button>
+
+		<button type="button" data-popup="video-3" class="sponsor__button | button button--primary">
+				<?php esc_html_e('Video-Popup #3', 'ywm'); ?>
+		</button>
   </div>
 
 

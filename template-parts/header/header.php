@@ -3,7 +3,7 @@ $logo = get_field('site-logo', 'option');
 $button = get_field('cta-button', 'option');
 ?>
 
-<header class="header | bg-neutral-000" id="header">
+<header data-lp class="header | bg-neutral-000" id="header">
 
   <div class="header__container | container">
       <?php if($logo): ?>

@@ -8,7 +8,10 @@
     align-items: center
   &--bottom
     align-items: flex-end
-
+  .page-id-170 &
+    @include min-screen(medium)
+      padding-block: calc(max( 100px , 23vh))
+    
   @include min-screen(medium)
     // min-height: rem(615)
     // min-height: 78.343949vh // 615/785
@@ -24,6 +27,7 @@
     min-height: calc( 100vh - 70px  )
     padding-block: rem(80)
     align-items: center
+
   &::before,
   &__background
     position: absolute
@@ -81,5 +85,8 @@
   // .hero__buttons
   // &__buttons
 
-
-// .hero
+.page:not(:has(.info))
+  .hero
+    @include min-screen(medium)
+      min-height: calc( 100vh - 105px )
+      min-height: calc( 100svh - 105px )

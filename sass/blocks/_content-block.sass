@@ -12,6 +12,8 @@
     justify-content: center
 
 .content-block
+  color: $color-neutral-800
+
   ul
     padding-left: 1.2rem
     display: inline-block
@@ -22,18 +24,25 @@
   a
     font-weight: $font-weight-semi-bold
 
+
   h1,
   h2,
   h3,
   h4,
   h5,
-  h6,
-  p
+  h6
     &:not(:last-child)
       @include min-screen(medium)
         margin-bottom: rem(30)
       @include max-screen(medium)
         margin-bottom: rem(20)
+
+  p
+    &:not(:last-child)
+      @include min-screen(medium)
+        margin-bottom: rem(24)
+      @include max-screen(medium)
+        margin-bottom: rem(12)
 
 // .text-center .content-block li
 //   text-align: left

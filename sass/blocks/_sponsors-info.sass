@@ -15,7 +15,7 @@
       @include min-screen(medium)
         margin-bottom: rem(60)
       @include max-screen(medium)
-        margin-bottom: rem(30)
+        margin-bottom: rem(40)
   // .sponsors__title
   // &__title
   // .sponsors__list
@@ -36,16 +36,19 @@
   &__image
     position: relative
     @include min-screen(medium)
-      flex: 0 1 40.2%
+      flex: 0 1 40.3%
       padding-bottom: 27.7%
     @include max-screen(medium)
       padding-bottom: 50%
     // min-width: rem(280);
     & img
       position: absolute
-      width: 80%
-      height: 80%
-      inset: 10%
+      width: 84%
+      height: 84%
+      inset: 8%
+      // width: 80%
+      // height: 80%
+      // inset: 10%
       object-fit: contain
   // .sponsor__content
   &__content
@@ -62,11 +65,14 @@
   // &__title
   // .sponsor__excerpt
   &__excerpt
+    color: $color-neutral-800
     a
       color: $color-primary-400
+      text-decoration: none
       +can-hover
         transition: color 0.3s ease
         &:hover
+          text-decoration: underline
           color: $color-accent-400
   // .sponsor__buttons
   &__buttons
@@ -75,4 +81,6 @@
     gap: rem(20)
 
   // .sponsor__button
-  // &__button
+  &__button
+    @include min-screen(small)
+      min-width: rem(180)

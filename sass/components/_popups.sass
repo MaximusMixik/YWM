@@ -10,6 +10,10 @@
   @include max-screen(medium)
     padding: rem(32)
     border-radius: $border-radius-1
+  @include max-screen(small)
+    width: 96%
+    padding: rem(12)
+
   // .popup--video
   &--video
     @include min-screen(medium)
@@ -61,14 +65,16 @@
       @include max-screen(medium)
         margin-bottom: rem(20)
   // .popup__title
-  &__title
+  // &__title
   // .popup__content
   &__content
     a
+      text-decoration: none
       color: $color-primary-400
       +can-hover
         transition: color 0.3s ease
         &:hover
+          text-decoration: underline
           color: $color-accent-400
     & > :not(:last-child)
       @include min-screen(medium)

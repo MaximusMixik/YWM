@@ -9,18 +9,21 @@ jQuery(function ($) {
 		state() {
 			this.currentPopupId = null;
 			this.currentPopupType = null;
+			this.htmlElement = document.documentElement; // Сохраняем ссылку на html элемент
 		}
 
 		query() {
 			this.popups = $(".js-popup");
-			// Match both #popup- and #video- prefixes
-			this.openPopupButtons = $("[href^='#popup-'], [href^='#video-']");
+			this.openPopupButtons = $("[data-popup]");
 			this.closePopupButtons = $(".js-popup-close");
 		}
 
 		events() {
 			this.openPopupButtons.click(this.openPopup.bind(this));
-			this.closePopupButtons.click(this.closePopup.bind(this));
+			this.closePopupButtons.click((e) => {
+				e.preventDefault();
+				this.closePopup();
+			});
 
 			// Close on clicking outside
 			this.popups.each((i, popup) => {
@@ -32,6 +35,7 @@ jQuery(function ($) {
 						e.clientY < dialogDimensions.top ||
 						e.clientY > dialogDimensions.bottom
 					) {
+						e.preventDefault();
 						this.closePopup();
 					}
 				});
@@ -40,6 +44,7 @@ jQuery(function ($) {
 			// Handle ESC key
 			$(document).keydown((e) => {
 				if (e.key === 'Escape') {
+					e.preventDefault();
 					this.closePopup();
 				}
 			});
@@ -48,20 +53,18 @@ jQuery(function ($) {
 		openPopup(event) {
 			event.preventDefault();
 			const $button = $(event.currentTarget);
-			const href = $button.attr("href");
+			const popupId = $button.data("popup");
 
-			// Determine popup type and ID
-			if (href.startsWith('#video-')) {
+			if (popupId.startsWith('video-')) {
 				this.currentPopupType = 'video';
-				this.currentPopupId = href.replace("#video-", "");
+				this.currentPopupId = popupId.replace("video-", "");
 			} else {
 				this.currentPopupType = 'popup';
-				this.currentPopupId = href.replace("#popup-", "");
+				this.currentPopupId = popupId.replace("popup-", "");
 			}
 
 			this.update();
 
-			// Additional handling for video popups
 			if (this.currentPopupType === 'video') {
 				this.handleVideoPopup();
 			}
@@ -70,16 +73,18 @@ jQuery(function ($) {
 		handleVideoPopup() {
 			const videoPopup = document.querySelector(`#video-${this.currentPopupId}`);
 			const videoContainer = videoPopup.querySelector('.popup__inner');
-
-			// Here you can add specific video handling logic
-			// For example, auto-playing the video, setting up video players, etc.
 		}
 
 		closePopup() {
-			// Cleanup for video if needed
 			if (this.currentPopupType === 'video') {
 				const videoPopup = document.querySelector(`#video-${this.currentPopupId}`);
-				// Add any cleanup logic for videos here
+				const iframe = videoPopup.querySelector('iframe');
+
+				if (iframe) {
+					const currentSrc = iframe.src;
+					iframe.src = '';
+					iframe.src = currentSrc;
+				}
 			}
 
 			this.currentPopupId = null;
@@ -99,17 +104,23 @@ jQuery(function ($) {
 			const activePopup = document.querySelector(selector);
 			if (activePopup) {
 				activePopup.showModal();
-				// Add active class for styling if needed
 				activePopup.classList.add('is-active');
+				this.htmlElement.classList.add('lock'); // Добавляем класс lock на html
 			}
 		}
 
 		hideAllPopups() {
 			this.popups.each((i, el) => {
+				const iframe = el.querySelector('iframe');
+				if (iframe) {
+					const currentSrc = iframe.src;
+					iframe.src = '';
+					iframe.src = currentSrc;
+				}
 				el.close();
-				// Remove active class
 				el.classList.remove('is-active');
 			});
+			this.htmlElement.classList.remove('lock'); // Убираем класс lock с html
 		}
 	}
 
