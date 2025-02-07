@@ -9,7 +9,7 @@ $label = $content['label'];
 $content = $content['content'];
 ?>
 
-		<section class="schedule  | section"> 
+		<section class="schedule"> 
 				<div class="schedule__container | container row">
 					<div class="schedule__about | col-12 col-md-7">
 							<?php render_content_block($label, $content, 'schedule__content');?>

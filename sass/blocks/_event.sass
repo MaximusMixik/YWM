@@ -1,17 +1,25 @@
 .event
+  @include min-screen(medium)
+    padding-inline: rem(15)
+    width: 100%
+
   // .event__container
   &__container
+    @include min-screen(75em)
+      padding-right: rem(367)
+
     @include min-screen(medium)
+      max-width: rem(1170)
+      width: 100%
       position: relative
       overflow: hidden
       background-color: $color-neutral-000
       box-shadow: $box-shadow-2
       border-radius: $border-radius-2
-      padding: rem(80) 21% rem(80) rem(80)
-          // transform: translateY(50%);
+      padding: rem(80) 19.8% rem(80) rem(80)
       margin-bottom: rem(-134)
     @include max-screen(medium)
-      padding-block: rem(60)
+      padding-block: rem(30) rem(60)
   // .event__content
   &__content
     position: relative

@@ -1,0 +1,49 @@
+.card
+  text-decoration: none
+  display: flex
+  flex-direction: column
+  gap: $card-flow-spacing
+  padding: $card-padding
+  background-color: $card-background-default
+  color: $card-color-default
+  box-shadow: $box-shadow-2
+  border-radius: $card-border-radius
+  height: 100%
+  transition: box-shadow 0.3s ease
+
+  @include can-hover
+    &:hover,
+    &:focus
+      color: $card-color-default
+      box-shadow: $box-shadow-2
+      .card__button
+        color: $color-neutral-000
+        background-color: $color-accent-400
+      .card__image-box img
+        transform: scale(1.15)
+  &__heading
+    flex: 1 1 auto
+    @include heading($card-heading-font-size, $card-heading-color-default)
+  &__image-box
+    flex: 0 0 rem(100)
+    width: rem(100)
+    height: rem(100)
+
+    display: grid
+    place-items: center
+
+    overflow: hidden
+    background-color: $color-neutral-000
+    border-radius: $border-radius-3
+
+    & img
+      width: 55%
+      height: 55%
+      object-fit: contain
+      @media (any-hover: hover)
+        transition: transform 0.3s ease
+
+  // .card__button
+  &__button
+    @include min-screen(small)
+      max-width: max-content

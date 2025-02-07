@@ -15,6 +15,17 @@
           inset: 0
           object-fit: cover
 
+    > div
+      // padding: 0 !important
+      padding-block: 23vh !important
+      min-height: rem(615)
+      @include min-screen(medium)
+        height: calc( 100vh - 105px )
+        height: calc( 100svh - 105px )
+
+      @include max-screen(medium)
+        height: calc( 100vh - 70px  )
+
   // .event-translation__container
   &__container
     @include min-screen(medium)
@@ -24,3 +35,5 @@
   // .event-translation__buttons
   &__buttons
     justify-content: center
+    &.buttons-block
+      margin-top: rem(40)

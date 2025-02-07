@@ -1,5 +1,11 @@
 
 .schedule
+  @include min-screen(medium)
+    padding-top: rem(140)
+
+  @include max-screen(medium)
+    padding-top: rem(60)
+
   // .schedule__container
   &__container
     row-gap: rem(40)

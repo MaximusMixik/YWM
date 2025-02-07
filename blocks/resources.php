@@ -31,7 +31,7 @@ if(!$heading  && !$cards) return;
 			</div>
 		<?php endif; ?>
 		<?php if ($cards):?>
-			<div class="resources__row | gy-20 row  mt-60 mt-md-30">
+			<div class="resources__row | gy-20 row  mt-60 mt-md-32">
 				<?php 
 							$counter = 1;
 				foreach($cards as $card):
