@@ -68,11 +68,11 @@ if( !$pricing_posts) return
 									if($counter > 3) $counter = 1;
 									$animation_classes = '';
 									switch($counter){
-									case 1: $animation_classes = 'fade-right delay-1';
+									case 1: $animation_classes = 'fade-right ';
 										break;
-									case 2: $animation_classes = 'fade-up delay-2';
+									case 2: $animation_classes = 'fade-up delay-1';
 										break;
-									case 3: $animation_classes = ' fade-left delay-3';
+									case 3: $animation_classes = ' fade-left delay-2';
 										break;
 									}
 										$counter++

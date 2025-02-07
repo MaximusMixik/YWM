@@ -9,7 +9,7 @@ jQuery(document).ready(function ($) {
 				markers: false,
 				trigger: el,
 				pin: false,
-				start: "top 85%",
+				start: "top 82%",
 				end: "bottom top",
 				scrub: 1,
 				onToggle: function (self) {
