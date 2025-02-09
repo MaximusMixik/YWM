@@ -158,6 +158,7 @@ body:has(#wpadminbar) .header {
 		font-weight: $navigation-font-weight;
 		color: $navigation-color;
 		font-family: $navigation-font-family;
+		transition: color 0.3s ease;
 		@media (any-hover: hover) {
 			&:hover {
 				color: $navigation-color-hover;
