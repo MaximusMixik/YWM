@@ -1,5 +1,5 @@
+/*! purgecss start ignore */
 .form
-  // .form__body
   &__body
     & > :not(:last-child)
       @include min-screen(medium)
@@ -12,7 +12,6 @@
       @include max-screen(medium)
         margin-bottom: rem(30)
 
-  // .form__row
   &__row
     flex-wrap: wrap
     &,
@@ -23,10 +22,8 @@
       gap: rem(20)
       @include max-screen(small)
         flex-direction: column
-  // .form__item
   &__item
     width: 100%
-  // .form__select
   &__select
     position: relative
     &::after
@@ -48,11 +45,8 @@
       & option:first-child
         display: none
 
-  // .form__button
   &__button
     width: 100%
-  // .form-group
-  //   display: grid
 
   br
     display: none
@@ -90,3 +84,14 @@
     color: $form-placeholder-color
     font-weight: $form-placeholder-font-weight
     font-family: $form-placeholder-font-family
+/*! purgecss end ignore */
+
+// .new-test
+//   background-color: red
+//   color: red
+//   border: rem(1) solid red
+//   outline: rem(1) solid red
+//   padding: rem(10)
+//   margin rem(10)
+//   font-size: rem(32)
+//   font-weight: 700
