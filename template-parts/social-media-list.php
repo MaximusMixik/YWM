@@ -23,13 +23,10 @@ if ($socials) : ?>
         <li class="social-media__item">
           <a class="social-media__link" href="<?php echo $socialURL;?>" target="_blank">
             <?php echo get_inline_svg($socialMedia . '.svg');?>
-            <!-- <?php // echo $socialMedia; ?> -->
+						<title><?php  echo $socialMedia; ?></title>
           </a>
         </li>
-        
-
         <?php endif; ?>
-
         <?php endforeach; ?>
         
     </ul>
