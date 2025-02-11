@@ -3,12 +3,12 @@
   &__body
     & > :not(:last-child)
       @include min-screen(medium)
-        margin-bottom: rem(23)
+        margin-bottom: rem(22)
       @include max-screen(medium)
         margin-bottom: rem(20)
     &:not(:last-child)
       @include min-screen(medium)
-        margin-bottom: rem(40)
+        margin-bottom: rem(39)
       @include max-screen(medium)
         margin-bottom: rem(30)
 
@@ -47,6 +47,7 @@
 
   &__button
     width: 100%
+    min-height: rem(52) !important
 
   br
     display: none
@@ -73,6 +74,7 @@
 
   textarea
     resize: vertical
+    overflow: hidden
     @include min-screen(medium)
       min-height: rem(140)
     @include max-screen(medium)
