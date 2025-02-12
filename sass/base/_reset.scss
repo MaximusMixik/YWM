@@ -34,6 +34,8 @@ summary::marker {
 /*
  * RESET FOR CONTACT FORM 7
  */
+/*! purgecss start ignore */
+
 .wpcf7-form {
 	* {
 		padding: 0;
@@ -42,7 +44,7 @@ summary::marker {
 
 	br,
 	.wpcf7-spinner {
-		display: none;
+		display: none !important;
 	}
 
 	.wpcf7-not-valid-tip {
@@ -56,6 +58,7 @@ summary::marker {
 		margin-top: $size-24 !important;
 	}
 }
+/*! purgecss end ignore */
 
 /*
  * HIDE WPML FOOTER SIDEBAR
