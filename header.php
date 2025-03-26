@@ -27,4 +27,12 @@
 
 	
 	?>
-	
+
+  <style>
+    @media (max-width: 1540px) {
+      body {
+        font-size: 16px;
+      }
+    }
+
+  </style>

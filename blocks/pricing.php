@@ -29,21 +29,24 @@ $pricing_posts = $selected_pricing;
 } else {
 $args = array(
 'post_type' => 'pricings',
-'posts_per_page' => -1,
-'meta_key' => 'price',
-'orderby' => 'meta_value_num',
-'order' => 'ASC',
-'meta_type' => 'NUMERIC',
+	'posts_per_page' => -1,
+	'meta_key' => 'price',
+	'orderby' => 'meta_value_num',
+	'order' => 'ASC',
+	'post_status' => 'publish',
+	'meta_type' => 'NUMERIC',
 );
 
 $query = new WP_Query($args);
 $pricing_posts = $query->posts;
 }
 
+$posts_count = count($pricing_posts);
+
 if( !$pricing_posts) return
 ?>
 
-	<section class="pricing | section">
+	<section class="pricing | section <?php echo $posts_count < 3 ? 'pricing--duplex' : ''; ?>">
 			<div class="pricing__container | container ">
 					<?php if ($title){ 
 							render_heading_block($label, $title, $titleTag, $content, "pricing__header"); 
@@ -54,9 +57,13 @@ if( !$pricing_posts) return
 							$primary_number = get_sub_field("primary_item") ? get_sub_field("primary_item") : 1;
 							$primary_item = intval($primary_number - 1);
 							
-							$counter = 1;
+							
+							
 
 							foreach ($pricing_posts as $key => $post) :
+
+									//echo get_post_status($post_id) . get_the_title();
+								
 									setup_postdata($post);
 									$is_primary = $key === $primary_item;
 									
@@ -75,7 +82,7 @@ if( !$pricing_posts) return
 									case 3: $animation_classes = ' fade-left delay-2';
 										break;
 									}
-										$counter++
+										$counter++;
 							?>
 
 									<li class="pricing-card <?php echo $is_primary ? 'pricing-card--accent' : ''; ?> | col-lg-4 col-sm-6 | animate <?php echo $animation_classes; ?> ">
@@ -117,3 +124,42 @@ if( !$pricing_posts) return
 					</ul>
 			</div>
 	</section>
+
+	<style>
+		.pricing--duplex .pricing__list{
+			justify-content: center;
+		}
+
+		.pricing--duplex .pricing-card--accent {
+			padding-bottom: 0;
+			padding-top: 
+		}
+
+		@media (min-width: 49rem) {
+			.pricing--duplex .pricing__container {
+				display: flex;
+				align-items: center;
+				width: 100%;
+				max-width: 1920px
+			}
+			
+			.pricing--duplex .col-lg-4 {
+				width: 50%;
+				max-width: calc(370px + 24px + 24px);
+			}
+			
+			.pricing--duplex .pricing__list{
+				max-width: calc(100% - 42%);
+				padding-right: 8.75rem;
+			}
+			
+			.pricing--duplex .pricing__header {
+				padding-left: 15px;
+				padding-right: 35px;
+				max-width: 42%;
+				text-align: left;
+				padding: 5.375rem 2.8% 5.375rem 9.7%;
+				margin-left: 0;
+			}
+		}
+	</style>
