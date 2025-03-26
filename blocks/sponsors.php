@@ -58,6 +58,13 @@ if(!$title  && !$sponsors) return;
 						$image = get_the_post_thumbnail_url($post_id, 'full');
 						$terms = wp_get_post_terms($post_id, 'sponsors_level');
 						$level = !empty($terms) && !is_wp_error($terms) ? $terms[0]->name : '';
+
+						$status = get_post_status($post_id);
+						
+						if ($status === 'draft' || $status === 'private') : 
+							continue;
+						endif; 
+						
 						?>
 						<li class=" sponsors-preview__item  sponsor-label | animate zoom-out">
 							<div class="sponsor-label__image ">

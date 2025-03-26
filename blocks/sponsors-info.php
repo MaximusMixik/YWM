@@ -16,6 +16,7 @@
 							$args = array(
 									'post_type' => 'sponsors',
 									'posts_per_page' => -1,
+									'post_status' => 'publish',
 									'tax_query' => array(
 											array(
 													'taxonomy' => 'sponsors_level',
@@ -47,6 +48,12 @@
 
 															$video = get_field('video');
 															$has_video = (bool)$video;
+
+															$status = get_post_status(get_the_ID());
+						
+															if ($status === 'draft' || $status === 'private') : 
+																continue;
+															endif;
 													?>
 
 												<li class="sponsors__item">
