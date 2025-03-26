@@ -11,10 +11,10 @@ $content = $content['content'];
 
 		<section class="schedule"> 
 				<div class="schedule__container | container row">
-					<div class="schedule__about | col-12 col-md-7">
+					<div class="schedule__about | col-12 col-md-8">
 						<?php render_content_block($label, $content); ?>
 					</div>
-					<div class="schedule__sidebar  | col-12 col-md-5">
+					<div class="schedule__sidebar  | col-12 col-md-4">
 						<aside class="sidebar  | animate fade-up">
 						<?php 
 						$infos = get_sub_field('info_repeater');
@@ -80,18 +80,7 @@ $content = $content['content'];
 	position: relative;
 }
 
-.wcs-class::before,
-.wcs-timetable__compact-list .wcs-class:not(.wcs-class--canceled):hover::before{
-	content: "";
-	position: absolute;
-	left: -6px;
-	top: -6px;
-	width: 11px;
-	height: 11px;
-	background-color: #80BB3D;
-	border-radius: 50%;
-	opacity: 1;
-}
+
 }
 
 
@@ -117,6 +106,89 @@ $content = $content['content'];
 
 .wcs-timetable__compact-list .wcs-day--visible:not(:last-child)::after {
 	opacity: 0;
-}</style>
+}
+
+
+
+.wcs-timetable__compact-list .wcs-day__date small {
+	font-size: 100%;
+	opacity: 1;
+}
+
+.wcs-timetable__compact-list .wcs-day__date {
+	padding-top: 0;
+	margin-top: -12px;
+	
+}
+
+@media (min-width: 768px) {
+    .wcs-timetable__compact-list .wcs-class {
+        padding-top: 0 !important;
+			padding-bottom: 50px !important;
+			margin-top: -15px !important;
+    }
+}
+
+.wcs-timetable__compact-list .wcs-class__time {
+	color: #80BB3D;
+	font-weight: 600;
+	margin-bottom: 8px;
+}
+
+.wcs-class__content small {
+	margin-bottom: 12px !important;
+}
+	
+	.wcs-class::before,
+.wcs-timetable__compact-list .wcs-class:not(.wcs-class--canceled):hover::before{
+	content: "";
+        position: absolute;
+        left: -6px;
+        top: 15px;
+        width: 11px;
+        height: 11px;
+        background-color: #80BB3D;
+        border-radius: 50%;
+        opacity: 1;
+}
+	
+	
+    
+
+@media (max-width: 768px) {
+	.wcs-timetable__compact-list .wcs-day .wcs-timetable__classes::before {
+        border-left: 1px solid #80BB3D;
+        bottom: 0;
+        right: auto;
+				left: -15px;
+    }
+	
+	.wcs-class::before, .wcs-timetable__compact-list .wcs-class:not(.wcs-class--canceled):hover::before {
+		left: -20px !important;
+	}
+	.wcs-timetable__compact-list .wcs-class {
+		padding-top: 10px !important;
+		margin-top: -15px;
+	}
+	.wcs-timetable__compact-list .wcs-day__date {
+		padding-bottom: 24px !important; 
+		margin-left: -8px;
+	}
+}
+	
+@media screen and (min-width: 49em) {
+    .sidebar__button {
+        margin-top: 2.5rem;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+	.schedule__sidebar {
+        padding-left: 0;
+    }
+}
+
+
+
+</style>
 
 <?php ?>

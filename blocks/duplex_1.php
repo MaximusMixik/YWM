@@ -84,9 +84,13 @@ endif;
 
 $videoSettings = get_sub_field('video_settings');
 
-$controls = $videoSettings['enable_controls'];
-$autoplay = $videoSettings['enable_autoplay'];
-$poster = $videoSettings['custom_poster'];
+if ($mediaType == 'video') : 
+
+	$controls = $videoSettings['enable_controls'] ?? false;
+	$autoplay = $videoSettings['enable_autoplay'];
+	$poster = $videoSettings['custom_poster'];
+
+endif;
 
 /* Background settings */
 

@@ -40,4 +40,4 @@ function cptui_register_my_cpts_members() {
 	register_post_type( "members", $args );
 }
 
-add_action( 'init', 'cptui_register_my_cpts_members' );
+//add_action( 'init', 'cptui_register_my_cpts_members' );

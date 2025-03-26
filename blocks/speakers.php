@@ -35,13 +35,18 @@ if(!$title && !$members) return;
 		<?php if (!empty($members)): ?>
 			<div class="info-media__body">
 				<ul class="experts | animate fade-left">
+					
 					<?php foreach ($members as $member) : 
-					$name = get_the_title($member->ID);
-					$position = get_field('position', $member->ID);
-					$image = get_field('image', $member->ID);
+
+					$term_id = $member;
+					$term = get_term($term_id);
+					$name = $term->name;
+
+					$position = get_field('position', $term);
+					$image = get_field('image', $term);
 					?>
 						<li class="experts__member ">
-							<!-- <a href="<?php echo get_permalink($member->ID); ?>" class="experts__link"> -->
+							
 								<?php if (!empty($image)) : ?>
 									<img data-no-lazy="1" class="experts__photo"
 										src="<?php echo esc_url($image['url']); ?>"
@@ -60,7 +65,7 @@ if(!$title && !$members) return;
 										</div>
 									<?php endif; ?>
 								</div>
-							<!-- </a> -->
+							
 						</li>
 					<?php endforeach; ?>
 					<?php wp_reset_postdata(); ?>

@@ -9,15 +9,17 @@ $article_title = get_the_title();
 
 $heading = get_field('section_title');
 
-$label = $heading['label'];
-$title = $heading['title'] ? $heading['title'] :  $article_title;
-$titleTag = $heading['title_tag'];
-$content = $heading['content'];
+$label = $heading['label'] ?? '';
+$title = $heading['title'] ?? $article_title;
+$titleTag = $heading['title_tag'] ?? 'h1';
+$content = $heading['content'] ?? '';
+
+$full_height = get_sub_field('full_screen_hero_height');
 
 $background = get_field('hero_image');
 
 ?>
-	<section class="single__hero hero ">
+	<section class="single__hero hero " <?php echo !$full_height ? 'style="min-height: 0;"' : '' ?>>
 		<?php if($background): ?>
 			<img class="hero__background" <?php acf_image_attrs($background) ?>>
 		<?php endif; ?>
@@ -75,7 +77,7 @@ $background = get_field('hero_image');
 
 							<?php if($article_content): ?>
 								<div class="single-post__content">
-									<?php echo $article_content; ?>
+									<?php the_content(); ?>
 								</div>
 							<?php endif; ?>
 
@@ -100,8 +102,8 @@ $background = get_field('hero_image');
 		endif;?>
 
 <?php // feed section
-	$feed_title = get_field('blog_feed_title');
-	$feed_link = get_field('blog_feed_link');
+	$feed_title = get_field('blog_feed_title') ?? 'More Articles';
+	$feed_link = get_field('blog_feed_link') ?? '';
 
 	// Get custom option flag
 	$custom = get_sub_field('blog_feed_options');
@@ -110,6 +112,7 @@ $background = get_field('hero_image');
 	$posts_query = null;
 
 if ($custom) {
+	//echo 'custom';
     // Get custom selected posts
     $custom_posts = get_sub_field('blog_feed_custom');
     
@@ -119,20 +122,22 @@ if ($custom) {
             'post_type' => 'post',
             'post__in' => wp_list_pluck($custom_posts, 'ID'),
             'orderby' => 'post__in', // Preserve custom order
-            'posts_per_page' => -1
+            //'posts_per_page' => -1
         );
         $posts_query = new WP_Query($args);
     }
 } else {
+	//echo 'standard';
     // Standard query based on settings
-    $order_by = get_sub_field('blog_feed_order-by');
-    $post_items = get_sub_field('blog_feed_posts');
-    $date_order = get_sub_field('blog_feed_date-order');
+    $order_by = get_sub_field('blog_feed_order-by') ?? 'date';
+    $post_items = get_sub_field('blog_feed_posts') ?? 3;
+    $date_order = get_sub_field('blog_feed_date-order') ?? 'DESC';
 
     $args = array(
         'post_type' => 'post',
         'posts_per_page' => $post_items,
-        'orderby' => $order_by
+        'orderby' => $order_by,
+		'posts_per_page' => 3
     );
 
     if (in_array($order_by, ['date', 'title', 'relevance'])) {
@@ -153,7 +158,9 @@ if (!$posts_query || !$posts_query->have_posts()) return;
 					<h2 class="blog-feed__title | heading-3 ">
 						<?php echo esc_html($feed_title); ?>
 					</h2>
-					<a class="blog-feed__button | button button--accent " 
+
+					<?php if ($feed_link): ?>
+					<a class="blog-feed__button | button button--accent" 
 					<?php acf_link_attrs($feed_link); ?> >
 					<?php echo esc_html($feed_link['title']); ?>
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 25" width="24" height="25" fill="none">
@@ -164,9 +171,10 @@ if (!$posts_query || !$posts_query->have_posts()) return;
 							<clipPath id="a">
 								<path fill="#fff" d="M0 0h24v24H0z" transform="translate(0 .5)"/>
 							</clipPath>
-						</defs>
+						</defs>	
 					</svg>
 					</a>
+					<?php endif; ?>
 				</div>
 			<?php endif; ?>
 
