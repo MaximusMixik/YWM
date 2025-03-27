@@ -6,24 +6,41 @@
 
 $switch = get_sub_field('default_block_values');
 if(!$switch){
-$content = get_sub_field('section_title');
+	$content = get_sub_field('section_title');
 
-$label = $content['label'];
-$content = $content['content'];
+	$label = $content['label'];
+	$content = $content['content'];
 
-$buttonPrimary = get_sub_field('button_primary');
-$buttonSecondary = get_sub_field('button_secondary');
+	$buttonPrimary = get_sub_field('button_primary');
+	$buttonSecondary = get_sub_field('button_secondary');
 
-$form = get_sub_field('form');
+	$form_settings = get_sub_field('form_settings');
+	$source = $form_settings['form_source'];
+	if ($source == 'Salsa') {
+		$salsa_object = $form_settings['salsa_form'];
+		$form = get_field('form_code', $salsa_object->ID);
+	} elseif ($source == 'Shortcode') {
+		$form = $form_settings['shortcode'];
+	}
+
 }
 else{
-$label = get_field('contact_label', 'option');
-$content = get_field('contact_content', 'option');
+	$label = get_field('contact_label', 'option');
+	$content = get_field('contact_content', 'option');
 
-$buttonPrimary = get_field('contact_button_primary', 'option');
-$buttonSecondary = get_field('contact_button_secondary', 'option');
+	$buttonPrimary = get_field('contact_button_primary', 'option');
+	$buttonSecondary = get_field('contact_button_secondary', 'option');
 
-$form = get_field('form', 'option');
+	$source = get_field('form_source', 'option');
+	if ($source == 'Salsa') {
+		$salsa_object = get_field('salsa_form', 'option');
+		$form = get_field('form_code', $salsa_object->ID);
+	} elseif ($source == 'Shortcode') {
+		$form = get_field('form', 'option');
+
+	}
+
+	echo $form;
 }
 
 if (!$form || !$content) return;
@@ -43,7 +60,15 @@ if (!$form || !$content) return;
 		<?php endif; ?>
 		<?php if($form): ?>
 			<div class="contact-us__form form  | animate fade-up " >
-				<?php echo $form; ?>
+
+				<?php if ($source == 'Salsa') {
+					echo $form;
+				} elseif ($source == 'Shortcode') {
+					echo do_shortcode($form);
+				}
+
+				?>
+								
 			</div>
 		<?php endif; ?>
 
