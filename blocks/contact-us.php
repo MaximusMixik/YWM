@@ -40,7 +40,7 @@ else{
 
 	}
 
-	echo $form;
+	//echo $form;
 }
 
 if (!$form || !$content) return;
@@ -74,3 +74,14 @@ if (!$form || !$content) return;
 
 	</div>
 </section>
+
+<style>
+	.form .sli-element:not(.sli-text) {
+		margin-bottom: 0 !important;
+		margin-top: 0 !important;
+	}
+
+	.sli-form .sli-input:not(textarea) {
+		color: #8a8a8a !important;
+	}
+</style>
